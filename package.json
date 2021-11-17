@@ -2,10 +2,13 @@
   "name": "messager-yandex-practicum",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "scripts": {
-    "start": "parcel static/index.html",
-    "dev": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "parcel static/index.html -p 3000",
+    "build": "parcel build static/index.html"
   },
   "repository": {
     "type": "git",
