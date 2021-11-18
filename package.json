@@ -6,9 +6,10 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "parcel build static/index.html && node server.js",
+    "start": "parcel static/index.html -p 3000",
     "dev": "parcel static/index.html -p 3000 --open",
-    "build": "parcel build static/index.html"
+    "build": "parcel build static/index.html",
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
