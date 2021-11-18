@@ -28,4 +28,4 @@ Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
 
 ## Pull requests
 
-Sprint 1: 
+Sprint 1: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/1
