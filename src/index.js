@@ -1,4 +1,4 @@
-import './index.scss';
+import './styles/index.scss';
 
 import { renderLogin } from './pages/login/login';
 import { renderRegister } from './pages/register/register';
