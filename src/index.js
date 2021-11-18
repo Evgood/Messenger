@@ -2,10 +2,10 @@ import './index.scss';
 
 import { renderLogin } from './pages/login/login';
 import { renderRegister } from './pages/register/register';
-import { renderChat } from './pages/chats/chat';
+import { renderChat } from './pages/chat/chat';
 import { renderSettings } from './pages/settings/settings';
-import { renderError404 } from './pages/404/404';
-import { renderError500 } from './pages/500/500';
+import { renderError404 } from './pages/error/404/404';
+import { renderError500 } from './pages/error/500/500';
 
 const root = document.querySelector("#root");
 const path = window.location.pathname;

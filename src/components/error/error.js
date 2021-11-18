@@ -1,10 +1,4 @@
-import Handlebars from "handlebars";
-import { errorTmpl } from "./error.tmpl"
+import Handlebars from "handlebars/dist/handlebars.runtime";
+import template from "./error.hbs";
 
-const template = Handlebars.compile(errorTmpl);
-
-const error = (options) => {
-    return template(options)
-}
-
-export { error };
+Handlebars.registerPartial("error", template);

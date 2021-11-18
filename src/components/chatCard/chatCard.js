@@ -1,10 +1,4 @@
-import Handlebars from "handlebars";
-import { chatCardTmpl } from "./chatCard.tmpl"
+import Handlebars from "handlebars/dist/handlebars.runtime";
+import template from "./chatCard.hbs";
 
-const template = Handlebars.compile(chatCardTmpl);
-
-const chatCard = (options) => {
-    return template(options)
-}
-
-export { chatCard };
+Handlebars.registerPartial("chatCard", template);

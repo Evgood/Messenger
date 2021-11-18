@@ -1,10 +1,4 @@
-import Handlebars from "handlebars";
-import { inputTmpl } from "./input.tmpl"
+import Handlebars from "handlebars/dist/handlebars.runtime";
+import template from "./input.hbs";
 
-const template = Handlebars.compile(inputTmpl);
-
-const input = (options) => {
-    return template(options)
-}
-
-export { input };
+Handlebars.registerPartial("input", template);

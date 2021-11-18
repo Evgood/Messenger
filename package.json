@@ -6,8 +6,8 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "parcel static/index.html -p 3000",
+    "start": "parcel build static/index.html && node server.js",
+    "dev": "parcel static/index.html -p 3000 --open",
     "build": "parcel build static/index.html"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "handlebars": "^4.7.7",
     "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
     "sass": "^1.43.4"
   }
 }
