@@ -18,12 +18,12 @@ https://www.figma.com/file/BRT0Knjd08ubRNz4EeztS1/Chat?node-id=0%3A1
 
 ## Страницы
 
-Login page: https://affectionate-heyrovsky-b5e847.netlify.app/login
-Register page: https://affectionate-heyrovsky-b5e847.netlify.app/register
-Chat page: https://affectionate-heyrovsky-b5e847.netlify.app/chat
-Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
-404 page: https://affectionate-heyrovsky-b5e847.netlify.app/404
-500 page: https://affectionate-heyrovsky-b5e847.netlify.app/500
+Login page: https://affectionate-heyrovsky-b5e847.netlify.app/login  
+Register page: https://affectionate-heyrovsky-b5e847.netlify.app/register  
+Chat page: https://affectionate-heyrovsky-b5e847.netlify.app/chat  
+Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings  
+404 page: https://affectionate-heyrovsky-b5e847.netlify.app/404  
+500 page: https://affectionate-heyrovsky-b5e847.netlify.app/500  
 
 
 ## Pull requests
