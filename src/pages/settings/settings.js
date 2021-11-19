@@ -4,11 +4,11 @@ import '../../components/settingCard/settingCard'
 import avatar from '../../../static/images/avatars/01.jpg';
 import { svg } from '../../../static/images/svg';
 
-import settingsTmpl from "./settings.hbs";
+import settingsTmpl from './settings.hbs';
 
 const data = {
-    chatHeaderContex: {
-        buttonContex: {
+    chatHeaderContext: {
+        buttonContext: {
             className: 'header__button button',
             type: 'button',
             content: svg.setting,
@@ -18,7 +18,7 @@ const data = {
     },
     settingCard: [
         {
-            settingCardContex: {
+            settingCardContext: {
                 cardLine: [
                     {
                         withAvatar: true,
@@ -28,7 +28,7 @@ const data = {
             },
         },
         {
-            settingCardContex: {
+            settingCardContext: {
                 cardLine: [
                     {
                         label: 'Имя',
@@ -46,7 +46,7 @@ const data = {
             },
         },
         {
-            settingCardContex: {
+            settingCardContext: {
                 cardLine: [
                     {
                         label: 'Логин',
@@ -64,7 +64,7 @@ const data = {
             },
         },
         {
-            settingCardContex: {
+            settingCardContext: {
                 cardLine: [
                     {
                         withLink: true,

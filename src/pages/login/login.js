@@ -1,8 +1,8 @@
 import '../../module/form/form';
-import loginTmpl from "./login.hbs";
+import loginTmpl from './login.hbs';
 
 const data = {
-    formContex: {
+    formContext: {
         formTitle: 'Вход',
         isFooterForm: true,
         footerFormDesc: 'Нет аккаунта?',
@@ -10,7 +10,7 @@ const data = {
         footerFormLinkUrl: '/register',
         inputs: [
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'text',
                     name: 'login',
@@ -18,7 +18,7 @@ const data = {
                 }
             },
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'password',
                     name: 'password',
@@ -26,7 +26,7 @@ const data = {
                 }
             },
         ],
-        buttonContex: {
+        buttonContext: {
             className: 'form__button button',
             type: 'submit',
             content: 'Войти',

@@ -4,20 +4,20 @@ import '../../module/messageControls/messageControls';
 import '../../module/mesageList/mesageList';
 import '../../components/chatCard/chatCard';
 
-import chatTmpl from "./chat.hbs";
+import chatTmpl from './chat.hbs';
 
 import avatar from '../../../static/images/avatars/01.jpg';
 import { svg } from '../../../static/images/svg';
 
 const data = {
-    chatHeaderContex: {
-        buttonContex: {
+    chatHeaderContext: {
+        buttonContext: {
             className: 'header__button button',
             type: 'button',
             content: svg.setting,
         },
         withInput: true,
-        inputContex: {
+        inputContext: {
             className: 'input input__search',
             type: 'text',
             name: 'search',
@@ -26,7 +26,7 @@ const data = {
     },
     chatCards: [
         {
-            chatCardContex: {
+            chatCardContext: {
                 className: 'chat-card_notarget',
                 avatarName: 'Кристина Нехорошкова',
                 avatarUrl: avatar,
@@ -36,7 +36,7 @@ const data = {
             }
         },
         {
-            chatCardContex: {
+            chatCardContext: {
                 className: 'chat-card_active',
                 avatarName: 'Дамир Юсипов',
                 avatarUrl: avatar,
@@ -45,7 +45,7 @@ const data = {
             }
         },
         {
-            chatCardContex: {
+            chatCardContext: {
                 className: 'chat-card_notarget',
                 avatarName: 'Кристина Нехорошкова',
                 avatarUrl: avatar,
@@ -54,7 +54,7 @@ const data = {
             }
         },
         {
-            chatCardContex: {
+            chatCardContext: {
                 className: 'chat-card_notarget',
                 avatarName: 'Кристина Нехорошкова',
                 avatarUrl: avatar,
@@ -63,7 +63,7 @@ const data = {
             }
         },
         {
-            chatCardContex: {
+            chatCardContext: {
                 className: 'chat-card_notarget',
                 avatarName: 'Кристина Нехорошкова',
                 avatarUrl: avatar,
@@ -73,7 +73,7 @@ const data = {
             }
         },
         {
-            chatCardContex: {
+            chatCardContext: {
                 className: 'chat-card_notarget',
                 avatarName: 'Кристина Нехорошкова',
                 avatarUrl: avatar,
@@ -83,7 +83,7 @@ const data = {
             }
         },
         {
-            chatCardContex: {
+            chatCardContext: {
                 className: 'chat-card_notarget',
                 avatarName: 'Кристина Нехорошкова',
                 avatarUrl: avatar,
@@ -92,17 +92,17 @@ const data = {
             }
         },
     ],
-    mesageHeaderContex: {
+    mesageHeaderContext: {
         buttons: [
             {
-                buttonContex: {
+                buttonContext: {
                     className: 'header__button button',
                     type: 'button',
                     content: svg.search,
                 },
             },
             {
-                buttonContex: {
+                buttonContext: {
                     className: 'header__button button',
                     type: 'button',
                     content: svg.menu,
@@ -112,7 +112,7 @@ const data = {
         avatarUrl: avatar,
         avatarName: 'Дамир Юсипов',
     },
-    messageControlsContex: {
+    messageControlsContext: {
         buttonAdd: {
             className: 'header__button button',
             type: 'button',

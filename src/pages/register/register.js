@@ -1,8 +1,8 @@
 import '../../module/form/form';
-import registerTmpl from "./register.hbs";
+import registerTmpl from './register.hbs';
 
 const data = {
-    formContex: {
+    formContext: {
         formTitle: 'Регистрация',
         isFooterForm: true,
         footerFormDesc: 'Уже есть аккаунт?',
@@ -10,7 +10,7 @@ const data = {
         footerFormLinkUrl: '/login',
         inputs: [
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'text',
                     name: 'first_name',
@@ -18,7 +18,7 @@ const data = {
                 }
             },
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'text',
                     name: 'second_name',
@@ -26,7 +26,7 @@ const data = {
                 }
             },
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'text',
                     name: 'login',
@@ -34,7 +34,7 @@ const data = {
                 }
             },
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'tel',
                     name: 'phone',
@@ -42,7 +42,7 @@ const data = {
                 }
             },
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'email',
                     name: 'email',
@@ -50,7 +50,7 @@ const data = {
                 }
             },
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'password',
                     name: 'password',
@@ -58,7 +58,7 @@ const data = {
                 }
             },
             {
-                inputContex: {
+                inputContext: {
                     className: 'input form__input',
                     type: 'password',
                     name: 'password',
@@ -66,7 +66,7 @@ const data = {
                 }
             },
         ],
-        buttonContex: {
+        buttonContext: {
             className: 'form__button button',
             type: 'submit',
             content: 'Зарегистрироваться',

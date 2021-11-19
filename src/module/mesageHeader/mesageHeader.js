@@ -1,4 +1,4 @@
-import Handlebars from "handlebars/dist/handlebars.runtime";
-import template from "./mesageHeader.hbs";
+import Handlebars from 'handlebars/dist/handlebars.runtime';
+import template from './mesageHeader.hbs';
 
-Handlebars.registerPartial("mesageHeader", template);
+Handlebars.registerPartial('mesageHeader', template);

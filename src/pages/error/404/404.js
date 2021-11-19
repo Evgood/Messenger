@@ -1,8 +1,8 @@
 import '../../../components/error/error'
-import errorTmpl from "./404.hbs";
+import errorTmpl from './404.hbs';
 
 const data = {
-    errorContex: {
+    errorContext: {
         title: '404',
         message: 'Кажется такой страницы нет',
         linkName: 'Начать с главной',
