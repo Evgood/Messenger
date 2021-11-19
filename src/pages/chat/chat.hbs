@@ -1,0 +1,22 @@
+<div class="grid">
+    <section class="left">
+
+        {{>chatHeader chatHeaderContext}}
+
+        <section class="chat-list">
+
+            {{#each chatCards}}
+                {{>chatCard chatCardContext}}
+            {{/each}}
+
+        </section>
+    </section>
+
+    <section class="messages-layout">
+
+        {{>mesageHeader mesageHeaderContext}}
+        {{>mesageList}}
+        {{>messageControls messageControlsContext}}
+
+    </section>
+</div>

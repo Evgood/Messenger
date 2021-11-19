@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@import 'variables';
+@import 'mixin';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: $color-bg;
+    font-weight: 400;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 320px 1fr
+}
+
+.left {
+    box-shadow: 10px 0px 15px rgba(207, 219, 224, 0.2);
+    z-index: 1;
+}
+
+.header {
+    position: relative;
+    background: $color-white;
+    border-bottom: 1px solid $color-stroke;
+    padding: 12px;
+
+    &__left {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        gap: 12px;
+    }
+
+    &__right {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 12px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: background .2s ease;
+
+        width: 36px;
+        height: 36px;
+        background: $color-input;
+        @include boder-radius_xl;
+    }
+
+    &__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    &__button:hover {
+        background: $color-primary;
+    }
+}
+
+.avatar {
+    @include boder-radius_xl;
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__name {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    &__message {
+        height: 30px;
+        font-size: 12px;
+        line-height: 130%;
+        color: $color-label;
+    }
+
+    &_chat-header {
+        width: 36px;
+        height: 36px;
+    }
+
+    &_chat-list {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+.chat-list {
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    background: $color-white;
+}
+
+.messages-layout {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+}
+
+.message-controls {
+    background: $color-white;
+    padding: 12px 24px;
+    border-top: 1px solid $color-stroke;
+
+    &__form {
+        display: grid;
+        grid-template-columns: min-content 1fr min-content;
+        gap: 12px;
+    }
+}

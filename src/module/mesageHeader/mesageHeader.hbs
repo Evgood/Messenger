@@ -1,0 +1,15 @@
+<section class="header">
+    <div class="header__right">
+
+        <div class="avatar__wrap">
+            <img src="{{ avatarUrl }}" class="avatar avatar_chat-header">
+            <span class="avatar__name">{{ avatarName }}</span>
+        </div>
+
+        <div class="button__wrap">
+            {{#each buttons}}
+               {{>button buttonContext}}
+            {{/each}}   
+        </div>
+    </div>
+</section>

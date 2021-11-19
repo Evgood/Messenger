@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+
+    transform: translate(-50%, -50%);
+
+    &__title {
+        font-weight: 600;
+        font-size: 96px;
+        margin-bottom: 12px;
+    }
+
+    &__desc {
+        font-size: 24px;
+        color: $color-label;
+        margin-bottom: 36px;
+    }
+
+    &__link {
+        font-weight: 600;
+        font-size: 14px;
+        color: $color-primary;
+        text-decoration: none;
+    }
+}

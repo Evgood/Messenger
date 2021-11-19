@@ -1,0 +1,23 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.input {
+    @include boder-radius_m;
+    font-family: inherit;
+    color: $color-label;
+    background: $color-input;
+    border: 1px solid $color-stroke;
+
+    &__search {
+        height: 36px;
+        font-size: 12px;
+        padding-left: 34px;
+        background: url('../../../static/images/icons/search-input.svg') no-repeat 12px 50% $color-input;
+    }
+
+    &__message {
+        height: 36px;
+        font-size: 12px;
+        padding-left: 12px;
+    }
+}

@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.button {
+    border: none;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    &__wrap {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__image path {
+        fill: $color-black;
+        transition: fill .2s ease;
+    }
+
+    &:hover .button__image path {
+        fill: $color-white;
+    }
+
+    &__image_stroke path {
+        stroke: $color-black;
+        transition: fill .2s ease;
+    }
+
+    &:hover .button__image_stroke path {
+        stroke: $color-white;
+    }
+}

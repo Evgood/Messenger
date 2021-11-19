@@ -1,0 +1,20 @@
+<form class="form">
+
+    <h1 class="form__title">{{ formTitle }}</h1>
+
+    <div class="form__wrap form__wrap_16">
+        {{#each inputs}}
+            {{>input inputContext}}
+        {{/each}}
+    </div>
+
+    {{>button buttonContext}}
+    
+    {{#if isFooterForm}}
+        <div class="form__wrap form__wrap_6">
+            <span class="form__desc">{{ footerFormDesc }}</span>
+            <a href="{{ footerFormLinkUrl }}" class="form__link">{{ footerFormLinkName }}</a>
+        </div>
+     {{/if}}
+
+</form>
