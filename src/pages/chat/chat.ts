@@ -1,5 +1,6 @@
 import Block from '../../utils/Block'
-import chatTmpl from './chat.hbs';
+/* @ts-ignore */
+import template from './chat.hbs';
 
 type Props = Record<string, any>;
 
@@ -17,7 +18,6 @@ class Chat extends Block {
     }
 
     render() {
-        const template: Function = chatTmpl;
         return this.setTemplate(template, this.props);
     }
 }

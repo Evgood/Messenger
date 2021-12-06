@@ -1,8 +1,11 @@
 import Block from '../../utils/Block';
+/* @ts-ignore */
 import template from './button.hbs';
 
+type Props = Record<string, any>;
+
 class Button extends Block {
-    constructor(props) {
+    constructor(props: Props = {}) {
         super("button", props);
     }
 
