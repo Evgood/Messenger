@@ -3,8 +3,7 @@ import './styles/index.scss';
 import renderDOM from './utils/renderDom'
 import Chat from './pages/chat/chat';
 
-
-const path = window.location.pathname;
+const path: string = window.location.pathname;
 
 switch (path) {
     case '/':

@@ -1,11 +1,10 @@
 import Block from '../../utils/Block'
 import chatTmpl from './chat.hbs';
 
-
 type Props = Record<string, any>;
 
 class Chat extends Block {
-    constructor(props: Props) {
+    constructor(props: Props = {}) {
         super("div", props);
     }
 
