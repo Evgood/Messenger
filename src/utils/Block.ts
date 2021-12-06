@@ -1,27 +1,35 @@
 import Handlebars from 'handlebars/dist/handlebars.runtime';
 import { v4 as makeUUID } from 'uuid';
+import EventBus from './EventBus';
 
+type Props = Record<string, any>;
+type Children = Record<string, Block>;
+type Events = Record<string, string>;
 abstract class Block {
 
-    private EVENTS = {
+    private EVENTS: Events = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
         FLOW_CDU: "flow:component-did-update",
         FLOW_CWU: "flow:component-will-unmount",
         FLOW_RENDER: "flow:render",
     };
-    private element;
+    private element: HTMLElement;
+    private tagName: string;
 
-    protected eventBus;
-    protected props;
-    protected children;
-    protected id;
+    protected eventBus: EventBus;
+    protected props: Props;
+    protected children: Children;
+    protected id: string;
 
-    public constructor(private tagName, propsAndChildren) {
+    
+    public constructor(tagName: string = 'div', propsAndChildren: Props = {}) {
+        this.tagName = tagName;
         this.id = makeUUID();
 
         const { children, props } = this.getChildren(propsAndChildren);
         this.children = children;
+
         this.props = this.makePropsProxy({ ...props, id: this.id });
 
         this.eventBus = new EventBus();
@@ -30,63 +38,62 @@ abstract class Block {
     }
 
 
-    public setProps(newProps) {
+    public setProps(newProps: Props): void {
         if (!newProps) return;
 
         Object.assign(this.props, newProps);
     }
 
 
-    public getElement() {
+    public getElement(): HTMLElement {
         return this.element;
     }
 
 
-    public dispatchMountComponent() {
+    public dispatchMountComponent(): void {
         this.eventBus.emit(this.EVENTS.FLOW_CDM);
     }
 
 
-    public componentDidMount() { }
+    public componentDidMount(): void { }
 
 
-    public componentDidUpdate() { }
+    public componentDidUpdate(): void { }
 
 
-    public componentWillUnmount() { }
+    public componentWillUnmount(): void { }
 
 
-    public abstract render()
+    public abstract render(): DocumentFragment
 
 
-    private mountComponent() {
+    private mountComponent(): void {
         this.componentDidMount();
 
-        Object.values(this.children).forEach(child => {
+        Object.values(this.children).forEach((child) => {
             child.dispatchMountComponent();
         });
     }
 
 
-    private updateComponent(oldProps, newProps) {
+    private updateComponent(oldProps: Props, newProps: Props): void {
         const isUpdate = (oldProps != newProps) ? true : false;
 
         if (isUpdate) {
             this.removeEvents();
             this.eventBus.emit(this.EVENTS.FLOW_RENDER);
+            this.componentDidUpdate();
         }
-
-        this.componentDidUpdate();
     }
 
 
-    private unmountComponent() {
+    private unmountComponent(): void {
         this.removeEvents();
         // Удалить из DOM
     }
 
 
-    private renderComponent() {
+    private renderComponent(): void {
         this.element.innerHTML = '';
         this.element.append(this.render());
 
@@ -94,13 +101,13 @@ abstract class Block {
     }
 
 
-    private makePropsProxy(props) {
+    private makePropsProxy(props: Props): Props {
         const proxySetting = {
-            get: (target, prop) => {
+            get: (target: Props, prop: string): unknown => {
                 return target[prop];
             },
 
-            set: (target, prop, value) => {
+            set: (target: Props, prop: string, value: unknown): boolean => {
                 const oldProps = target[prop];
                 target[prop] = value;
 
@@ -108,7 +115,7 @@ abstract class Block {
                 return true;
             },
 
-            deleteProperty: (target, prop) => {
+            deleteProperty: (target: Props, prop: string): boolean => {
                 const oldProps = target[prop];
                 delete target[prop];
 
@@ -121,7 +128,7 @@ abstract class Block {
     }
 
 
-    private registerEvent() {
+    private registerEvent(): void {
         this.eventBus.on(this.EVENTS.INIT, this.init.bind(this));
         this.eventBus.on(this.EVENTS.FLOW_CDM, this.mountComponent.bind(this));
         this.eventBus.on(this.EVENTS.FLOW_CDU, this.updateComponent.bind(this));
@@ -130,13 +137,13 @@ abstract class Block {
     }
 
 
-    private init() {
+    private init(): void {
         this.createResources();
         this.eventBus.emit(this.EVENTS.FLOW_RENDER);
     }
 
 
-    private createResources() {
+    private createResources(): void {
         this.element = this.createDocumentElement(this.tagName);
 
         if (this.props.className) {
@@ -145,12 +152,12 @@ abstract class Block {
     }
 
 
-    private createDocumentElement(tagName) {
+    private createDocumentElement(tagName: string): HTMLElement {
         return document.createElement(tagName);
     }
 
 
-    private addEvents() {
+    private addEvents(): void {
         const { events } = this.props;
 
         if (events) {
@@ -161,7 +168,7 @@ abstract class Block {
     }
 
 
-    private removeEvents() {
+    private removeEvents(): void {
         const { events } = this.props;
 
         if (events) {
@@ -172,9 +179,9 @@ abstract class Block {
     }
 
 
-    private getChildren(propsAndChildren) {
-        const children = {};
-        const props = {};
+    private getChildren(propsAndChildren: Props) {
+        const children: Children = {};
+        const props: Props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
             if (value instanceof Block) {
@@ -188,21 +195,23 @@ abstract class Block {
     }
 
 
-    protected setTemplate(template, props) {
+    protected setTemplate(template: Function, props: Props) {
         const propsAndStubs = { ...props };
 
         Object.entries(this.children).forEach(([key, child]) => {
             propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
         });
 
-        const fragment = this.createDocumentElement('template');
+        const fragment = this.createDocumentElement('template') as HTMLTemplateElement;
         fragment.innerHTML = template(propsAndStubs);
 
         Object.values(this.children).forEach(child => {
             const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
-            stub.replaceWith(child.getElement());
+            (stub as HTMLElement).replaceWith(child.getElement());
         });
 
         return fragment.content;
     }
 }
+
+export default Block;

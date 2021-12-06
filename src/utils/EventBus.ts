@@ -17,7 +17,7 @@ class EventBus {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners[event] = this.listeners[event].filter((listener: Function) => {
+        this.listeners[event] = this.listeners[event].filter((listener) => {
             return listener !== callback;
         });
     }
@@ -28,8 +28,10 @@ class EventBus {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners[event].forEach((listener: Function) => {
+        this.listeners[event].forEach((listener) => {
             listener(...args);
         });
     }
 }
+
+export default EventBus;

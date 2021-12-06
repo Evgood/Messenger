@@ -1,34 +1,30 @@
 import './styles/index.scss';
 
-import { renderLogin } from './pages/login/login';
-import { renderRegister } from './pages/register/register';
-import { renderChat } from './pages/chat/chat';
-import { renderSettings } from './pages/settings/settings';
-import { renderError404 } from './pages/error/404/404';
-import { renderError500 } from './pages/error/500/500';
+import renderDOM from './utils/renderDom'
+import Chat from './pages/chat/chat';
 
-const root = document.querySelector("#root");
+
 const path = window.location.pathname;
 
 switch (path) {
     case '/':
-        root.innerHTML = renderLogin();
+        // TODO renderDOM('#root', new Login());
         break;
     case '/login':
-        root.innerHTML = renderLogin();
+        // TODO renderDOM('#root', new Login());
         break;
     case '/register':
-        root.innerHTML = renderRegister();
+        // TODO renderDOM('#root', new Register());
         break;
     case '/chat':
-        root.innerHTML = renderChat();
+        renderDOM('#root', new Chat());
         break;
     case '/settings':
-        root.innerHTML = renderSettings();
+        // TODO renderDOM('#root', new Settings());
         break;
     case '/500':
-        root.innerHTML = renderError500();
+        // TODO renderDOM('#root', new Error());
         break;
     default:
-        root.innerHTML = renderError404();
+        // TODO renderDOM('#root', new Error());
 }
