@@ -7,7 +7,7 @@ type Props = Record<string, any>;
 
 class Input extends Block {
     constructor(props: Props = {}) {
-        super("input", props);
+        super("div", props);
     }
 
     render() {

@@ -7,7 +7,7 @@ type Props = Record<string, any>;
 
 class Button extends Block {
     constructor(props: Props = {}) {
-        super("button", props);
+        super("div", props);
     }
 
     render() {

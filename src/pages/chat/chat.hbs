@@ -5,18 +5,18 @@
 
         <section class="chat-list">
 
-            {{!-- {{#each chatCards}}
-                {{>chatCard chatCardContext}}
-            {{/each}} --}}
+            {{#each chatCards}}
+                {{{ chatCard }}}
+            {{/each}}
 
         </section>
     </section>
 
     <section class="messages-layout">
 
-        {{!-- {{>mesageHeader mesageHeaderContext}}
-        {{>mesageList}}
-        {{>messageControls messageControlsContext}} --}}
+        {{{ messageHeader }}}
+        {{{ messageList }}}
+        {{{ messageControls }}}
 
     </section>
 </div>

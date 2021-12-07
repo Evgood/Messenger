@@ -11,16 +11,18 @@ class ChatHeader extends Block {
         let button: Block | null = null;
         let input: Block | null = null;
 
-        console.log(props.button.className)
-
         button = new Button({
             className: props.button.className,
+            type: props.button.type,
             content: props.button.content,
         })
 
         if (props.input) {
             input = new Input({
                 className: props.input.className,
+                type: props.input.type,
+                name: props.input.name,
+                placeholder: props.input.placeholder,
             })
         }
 

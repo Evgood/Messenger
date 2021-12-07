@@ -1,6 +1,7 @@
 import Block from '../../utils/Block';
 /* @ts-ignore */
 import template from './error.hbs';
+import './error.scss';
 
 type Props = Record<string, any>;
 

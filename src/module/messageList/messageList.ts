@@ -1,13 +1,12 @@
 import Block from '../../utils/Block';
 /* @ts-ignore */
-import template from './settingCard.hbs';
-import './settingCard.scss';
+import template from './messageList.hbs';
 
 type Props = Record<string, any>;
 
-class SettingCard extends Block {
+class MessageList extends Block {
     constructor(props: Props = {}) {
-        super("div", props);
+        super("div", {});
     }
 
     render() {
@@ -15,4 +14,4 @@ class SettingCard extends Block {
     }
 }
 
-export default SettingCard;
+export default MessageList;
