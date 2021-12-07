@@ -3,6 +3,7 @@ import './styles/index.scss';
 import renderDOM from './utils/renderDom'
 import Chat from './pages/chat/chat';
 import Login from './pages/login/login';
+import Register from './pages/register/register';
 
 const path: string = window.location.pathname;
 
@@ -11,10 +12,10 @@ switch (path) {
         renderDOM('#root', new Login());
         break;
     case '/login':
-        // TODO renderDOM('#root', new Login());
+        renderDOM('#root', new Login());
         break;
     case '/register':
-        // TODO renderDOM('#root', new Register());
+        renderDOM('#root', new Register());
         break;
     case '/chat':
         renderDOM('#root', new Chat());
