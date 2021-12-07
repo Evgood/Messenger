@@ -9,10 +9,16 @@ type Props = Record<string, any>;
 class MessageControls extends Block {
     constructor(props: Props = {}) {
 
-        const button = new Button({
-            className: props.button.className,
-            type: props.button.type,
-            content: props.button.content,
+        const addButton = new Button({
+            className: props.addButton.className,
+            type: props.addButton.type,
+            content: props.addButton.content,
+        });
+
+        const sendButton = new Button({
+            className: props.sendButton.className,
+            type: props.sendButton.type,
+            content: props.sendButton.content,
         });
 
         const input = new Input({
@@ -24,8 +30,9 @@ class MessageControls extends Block {
 
 
         super("div", {
-            button,
+            addButton,
             input,
+            sendButton,
         });
     }
 

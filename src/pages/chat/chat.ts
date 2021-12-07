@@ -87,22 +87,10 @@ class Chat extends Block {
             avatarName: 'Дамир Юсипов',
         });
 
-        const messageList = new MessageList({
-            button: {
-                className: 'header__button button',
-                type: 'button',
-                content: svg.add,
-            },
-            input: {
-                className: 'input input__message',
-                type: 'text',
-                name: 'message',
-                placeholder: 'Сообщение',
-            },
-        });
+        const messageList = new MessageList({});
 
         const messageControls = new MessageControls({
-            button: {
+            addButton: {
                 className: 'header__button button',
                 type: 'button',
                 content: svg.add,
@@ -112,6 +100,11 @@ class Chat extends Block {
                 type: 'text',
                 name: 'message',
                 placeholder: 'Сообщение',
+            },
+            sendButton: {
+                className: 'header__button button',
+                type: 'submit',
+                content: svg.send,
             },
         });
 
