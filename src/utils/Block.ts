@@ -99,8 +99,11 @@ abstract class Block {
 
 
     private renderComponent(): void {
-        this.element.innerHTML = '';
-        this.element.append(this.render());
+        const fragment = this.render();
+        const element = fragment.firstElementChild as HTMLElement;
+
+        this.element.replaceWith(element);
+        this.element = element;
 
         this.addEvents();
     }

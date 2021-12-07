@@ -1,6 +1,7 @@
 import Block from '../../utils/Block';
 /* @ts-ignore */
 import template from './button.hbs';
+import './button.scss';
 
 type Props = Record<string, any>;
 
