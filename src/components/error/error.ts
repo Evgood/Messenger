@@ -8,6 +8,8 @@ type Props = Record<string, any>;
 class Error extends Block {
     constructor(props: Props = {}) {
         super("div", props);
+
+        console.log(props)
     }
 
     render() {

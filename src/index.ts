@@ -4,6 +4,7 @@ import renderDOM from './utils/renderDom'
 import Chat from './pages/chat/chat';
 import Login from './pages/login/login';
 import Register from './pages/register/register';
+import ErrorPage from './pages/error/error';
 
 const path: string = window.location.pathname;
 
@@ -24,8 +25,8 @@ switch (path) {
         // TODO renderDOM('#root', new Settings());
         break;
     case '/500':
-        // TODO renderDOM('#root', new Error());
+        renderDOM('#root', new ErrorPage({ code: 500 }));
         break;
     default:
-        // TODO renderDOM('#root', new Error());
+        renderDOM('#root', new ErrorPage({ code: 404 }));
 }
