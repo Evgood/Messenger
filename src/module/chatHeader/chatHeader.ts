@@ -1,10 +1,10 @@
 import Block from '../../utils/Block';
 /* @ts-ignore */
-import template from './input.hbs';
+import template from './chatHeader.hbs';
 
 type Props = Record<string, any>;
 
-class Input extends Block {
+class ChatHeader extends Block {
     constructor(props: Props = {}) {
         super("div", props);
     }
@@ -14,4 +14,4 @@ class Input extends Block {
     }
 }
 
-export default Input;
+export default ChatHeader;

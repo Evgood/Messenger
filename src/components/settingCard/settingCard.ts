@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 /* @ts-ignore */
-import template from './button.hbs';
+import template from './settingCard.hbs';
 
 type Props = Record<string, any>;
 

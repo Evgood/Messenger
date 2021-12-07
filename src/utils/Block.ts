@@ -22,14 +22,13 @@ abstract class Block {
     protected children: Children;
     protected id: string;
 
-    
+
     public constructor(tagName: string = 'div', propsAndChildren: Props = {}) {
         this.tagName = tagName;
         this.id = makeUUID();
 
         const { children, props } = this.getChildren(propsAndChildren);
         this.children = children;
-
         this.props = this.makePropsProxy({ ...props, id: this.id });
 
         this.eventBus = new EventBus();
@@ -47,6 +46,10 @@ abstract class Block {
 
     public getElement(): HTMLElement {
         return this.element;
+    }
+
+    public deleteElement(): void {
+        this.eventBus.emit(this.EVENTS.FLOW_CWU);
     }
 
 
@@ -88,8 +91,10 @@ abstract class Block {
 
 
     private unmountComponent(): void {
+        this.componentWillUnmount();
         this.removeEvents();
-        // Удалить из DOM
+
+        this.element.remove();
     }
 
 
@@ -180,11 +185,11 @@ abstract class Block {
 
 
     private getChildren(propsAndChildren: Props) {
-        const children: Children = {};
+        const children = {};
         const props: Props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
-            if (value instanceof Block) {
+            if (value instanceof Block || Array.isArray(value)) {
                 children[key] = value;
             } else {
                 props[key] = value;
@@ -198,16 +203,41 @@ abstract class Block {
     protected setTemplate(template: Function, props: Props) {
         const propsAndStubs = { ...props };
 
+        // Create the stubs
         Object.entries(this.children).forEach(([key, child]) => {
-            propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
+            if (Array.isArray(child)) {
+                // If the array of properties
+                child.forEach((innerChild: Children) => {
+                    Object.entries(innerChild).forEach(([innerChildKey, child]) => {
+                        if (!propsAndStubs[key]) {
+                            propsAndStubs[key] = [];
+                        }
+
+                        propsAndStubs[key].push({ [innerChildKey]: `<div data-id="${child.id}"></div>` })
+                    })
+                })
+            } else {
+                propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
+            }
         });
 
         const fragment = this.createDocumentElement('template') as HTMLTemplateElement;
         fragment.innerHTML = template(propsAndStubs);
 
+        // Replace the stubs with a Block
         Object.values(this.children).forEach(child => {
-            const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
-            (stub as HTMLElement).replaceWith(child.getElement());
+            if (Array.isArray(child)) {
+                // If the array of properties
+                child.forEach((innerChild: Children) => {
+                    Object.entries(innerChild).forEach(([innerChildKey, child]) => {
+                        const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
+                        (stub as HTMLElement).replaceWith(child.getElement());
+                    })
+                })
+            } else {
+                const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
+                (stub as HTMLElement).replaceWith(child.getElement());
+            }
         });
 
         return fragment.content;

@@ -9,14 +9,6 @@ class Chat extends Block {
         super("div", props);
     }
 
-    componentDidMount() {
-        console.log('Chat смонтирован')
-    }
-
-    componentDidUpdate() {
-        console.log('Chat обновлен')
-    }
-
     render() {
         return this.setTemplate(template, this.props);
     }
