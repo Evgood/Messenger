@@ -28,7 +28,6 @@ class MessageControls extends Block {
             placeholder: props.input.placeholder,
         });
 
-
         super("div", {
             addButton,
             input,
