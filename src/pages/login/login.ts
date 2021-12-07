@@ -10,25 +10,24 @@ type Props = Record<string, any>;
 class Login extends Block {
     constructor(props: Props = {}) {
 
-        const innerInputs =
-            [
-                {
-                    input: new Input({
-                        className: 'input form__input',
-                        type: 'text',
-                        name: 'login',
-                        placeholder: 'Логин',
-                    })
-                },
-                {
-                    input: new Input({
-                        className: 'input form__input',
-                        type: 'password',
-                        name: 'password',
-                        placeholder: 'Пароль',
-                    })
-                },
-            ]
+        const innerInputs = [
+            {
+                input: new Input({
+                    className: 'input form__input',
+                    type: 'text',
+                    name: 'login',
+                    placeholder: 'Логин',
+                })
+            },
+            {
+                input: new Input({
+                    className: 'input form__input',
+                    type: 'password',
+                    name: 'password',
+                    placeholder: 'Пароль',
+                })
+            },
+        ]
 
         const form = new Form({
             button: {
