@@ -1,9 +1,11 @@
 import Block from "../utils/Block";
 
-export type Props = Record<string, any>;
-export type Children = Record<string, Block>;
-export type Events = Record<string, string>;
+declare module "*.hbs";
 
-export type Listeners = Record<string, Function[]>;
-export type InnerChildren = Record<string, Block>[];
+type Props = Record<string, any>;
+type Children = Record<string, Block>;
+type Events = Record<string, string>;
+
+type Listeners = Record<string, Function[]>;
+type InnerChildren = Record<string, Block>[];
 
