@@ -7,19 +7,8 @@ enum METHODS {
     DELETE = 'DELETE',
 };
 
-function queryStringify(data: Record<string, any>) {
-    if (typeof data !== 'object') {
-        throw new Error('Тело запроса должно быть объектом');
-    }
-
-    const keys = Object.keys(data);
-
-    return keys.reduce((result, key, index) => {
-        return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
-    }, '?');
-}
-
 class HTTPTransport {
+    
     public get = (url: string, options: Options) => {
         return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
     };
@@ -40,6 +29,19 @@ class HTTPTransport {
     };
 
 
+    private queryStringify(data: Record<string, any>) {
+        if (typeof data !== 'object') {
+            throw new Error('Тело запроса должно быть объектом');
+        }
+    
+        const keys = Object.keys(data);
+    
+        return keys.reduce((result, key, index) => {
+            return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
+        }, '?');
+    }
+
+
     private request = (url: string, options: Options, timeout = 5000) => {
         const { headers = {}, method, data } = options;
 
@@ -50,8 +52,8 @@ class HTTPTransport {
 
             xhr.open(
                 method,
-                isGet && !!data
-                    ? `${url}${queryStringify(data)}`
+                isGet && data
+                    ? `${url}${this.queryStringify(data)}`
                     : url,
             );
 
@@ -59,10 +61,9 @@ class HTTPTransport {
                 xhr.setRequestHeader(key, headers[key]);
             });
 
-            xhr.onload = () => resolve(xhr);
-
             xhr.timeout = timeout;
 
+            xhr.onload = () => resolve(xhr);
             xhr.onabort = reject;
             xhr.onerror = reject;
             xhr.ontimeout = reject;
