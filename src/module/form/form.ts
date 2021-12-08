@@ -13,7 +13,7 @@ class Form extends Block {
             content: props.button.content,
         })
 
-        super("div", {
+        super('div', {
             button,
             inputs: innerChildren,
             formTitle: props.formTitle,

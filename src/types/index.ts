@@ -1,4 +1,4 @@
-import Block from "../utils/Block";
+import Block from '../utils/Block';
 
 export type Props = Record<string, any>;
 export type Children = Record<string, Block>;
@@ -13,4 +13,3 @@ export type Options = {
     headers?: Record<string, string>
     data?: Record<string, any>
 };
-

@@ -3,10 +3,8 @@ import Block from '../../utils/Block'
 
 import Form from '../../module/form/form';
 import Input from '../../components/input/input';
-/* @ts-ignore */
-import template from './login.hbs';
-/* @ts-ignore */
 
+import template from './login.hbs';
 
 class Login extends Block {
     constructor(props: Props = {}) {
@@ -43,7 +41,7 @@ class Login extends Block {
         }, innerInputs)
 
         super(
-            "div",
+            'div',
             {
                 ...props,
                 form

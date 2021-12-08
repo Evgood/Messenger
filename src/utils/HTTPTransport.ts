@@ -8,7 +8,7 @@ enum METHODS {
 };
 
 class HTTPTransport {
-    
+
     public get = (url: string, options: Options) => {
         return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
     };
@@ -33,9 +33,9 @@ class HTTPTransport {
         if (typeof data !== 'object') {
             throw new Error('Тело запроса должно быть объектом');
         }
-    
+
         const keys = Object.keys(data);
-    
+
         return keys.reduce((result, key, index) => {
             return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
         }, '?');

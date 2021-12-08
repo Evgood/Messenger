@@ -2,13 +2,12 @@ import { Props } from '../../types';
 import Block from '../../utils/Block'
 
 import ChatHeader from '../../module/chatHeader/chatHeader';
-/* @ts-ignore */
+
 import template from './settings.hbs';
 import './settings.scss';
-import { svg } from '../../../static/images/svg';
-/* @ts-ignore */
-import avatar from '../../../static/images/avatars/01.jpg';
 
+import svg from '../../../static/images/svg';
+import avatar from '../../../static/images/avatars/01.jpg';
 
 class Settings extends Block {
     constructor(props: Props = {}) {
@@ -33,7 +32,7 @@ class Settings extends Block {
         }
 
         super(
-            "div",
+            'div',
             {
                 ...props,
                 ...settingProps,

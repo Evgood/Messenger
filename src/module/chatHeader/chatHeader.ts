@@ -24,7 +24,7 @@ class ChatHeader extends Block {
             })
         }
 
-        super("div", {
+        super('div', {
             button,
             input,
             headerTitle: props.headerTitle,

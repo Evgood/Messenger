@@ -23,7 +23,7 @@ class MessageHeader extends Block {
             },
         ]
 
-        super("div", {
+        super('div', {
             buttons,
             avatarName: props.avatarName,
             avatarUrl: props.avatarUrl,

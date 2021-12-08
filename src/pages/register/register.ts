@@ -3,10 +3,8 @@ import Block from '../../utils/Block'
 
 import Form from '../../module/form/form';
 import Input from '../../components/input/input';
-/* @ts-ignore */
-import template from './register.hbs';
-/* @ts-ignore */
 
+import template from './register.hbs';
 
 class Register extends Block {
     constructor(props: Props = {}) {
@@ -83,7 +81,7 @@ class Register extends Block {
         }, innerInputs)
 
         super(
-            "div",
+            'div',
             {
                 ...props,
                 form

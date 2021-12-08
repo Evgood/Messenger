@@ -5,7 +5,7 @@ import './error.scss';
 
 class Error extends Block {
     constructor(props: Props = {}) {
-        super("div", props);
+        super('div', props);
     }
 
     render() {

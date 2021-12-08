@@ -9,7 +9,7 @@ import СhatCard from '../../components/chatCard/chatCard';
 
 import template from './chat.hbs';
 import avatar from '../../../static/images/avatars/01.jpg';
-import { svg } from '../../../static/images/svg';
+import svg from '../../../static/images/svg';
 
 class Chat extends Block {
     constructor(props: Props = {}) {
@@ -107,7 +107,7 @@ class Chat extends Block {
             },
         });
 
-        super("div", {
+        super('div', {
             ...props,
             chatHeader,
             chatCards,

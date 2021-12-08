@@ -4,7 +4,7 @@ import template from './messageList.hbs';
 
 class MessageList extends Block {
     constructor(props: Props = {}) {
-        super("div", { ...props });
+        super('div', { ...props });
     }
 
     render() {
