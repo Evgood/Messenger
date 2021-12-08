@@ -5,11 +5,11 @@ import { Events, Props, Children } from '../types';
 abstract class Block {
 
     private EVENTS: Events = {
-        INIT: "init",
-        FLOW_CDM: "flow:component-did-mount",
-        FLOW_CDU: "flow:component-did-update",
-        FLOW_CWU: "flow:component-will-unmount",
-        FLOW_RENDER: "flow:render",
+        INIT: 'init',
+        FLOW_CDM: 'flow:component-did-mount',
+        FLOW_CDU: 'flow:component-did-update',
+        FLOW_CWU: 'flow:component-will-unmount',
+        FLOW_RENDER: 'flow:render',
     };
     private element: HTMLElement;
     private tagName: string;
@@ -213,7 +213,11 @@ abstract class Block {
                             propsAndStubs[key] = [];
                         }
 
-                        propsAndStubs[key].push({ [innerChildKey]: `<div data-id="${child.id}"></div>` })
+                        propsAndStubs[key].push(
+                            {
+                                [innerChildKey]: `<div data-id="${child.id}"></div>`
+                            }
+                        )
                     })
                 })
             } else {

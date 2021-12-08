@@ -7,6 +7,19 @@ import './form.scss';
 class Form extends Block {
     constructor(props: Props = {}, innerChildren: InnerChildren = []) {
 
+        const eventSubmit = (event: Event) => {
+            event.preventDefault();
+
+            const data: Record<string, string> = {};
+            const inputFields = document.querySelectorAll('.form__input');
+
+            inputFields.forEach((input: HTMLInputElement) => {
+                data[input.name] = input.value
+            });
+
+            console.log(data);
+        }
+
         const button = new Button({
             className: props.button.className,
             type: props.button.type,
@@ -20,6 +33,9 @@ class Form extends Block {
             footerFormDesc: props.footerFormDesc,
             footerFormLinkName: props.footerFormLinkName,
             footerFormLinkUrl: props.footerFormLinkUrl,
+            events: {
+                submit: eventSubmit,
+            }
         });
     }
 

@@ -33,11 +33,21 @@ class Login extends Block {
                 className: 'form__button button',
                 type: 'submit',
                 content: 'Войти',
+                events: {
+                    click: () => {
+                        console.log('Event click');
+                    }
+                }
             },
             formTitle: 'Вход',
             footerFormDesc: 'Нет аккаунта?',
             footerFormLinkName: 'Регистрация',
             footerFormLinkUrl: '/register',
+            events: {
+                click: () => {
+                    console.log('Event click');
+                }
+            }
         }, innerInputs)
 
         super(
