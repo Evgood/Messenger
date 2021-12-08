@@ -1,4 +1,3 @@
-// @ts-ignore
 import Handlebars from 'handlebars/dist/handlebars.runtime';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';

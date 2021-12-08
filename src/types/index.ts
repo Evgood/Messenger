@@ -7,3 +7,10 @@ export type Events = Record<string, string>;
 export type Listeners = Record<string, Function[]>;
 export type InnerChildren = Record<string, Block>[];
 
+export type Options = {
+    timeout?: number
+    method: string
+    headers?: Record<string, string>
+    data?: Record<string, any>
+};
+
