@@ -46,7 +46,6 @@ class HTTPTransport {
         const { headers = {}, method, data } = options;
 
         return new Promise((resolve, reject) => {
-
             const xhr = new XMLHttpRequest();
             const isGet = (method === METHODS.GET);
 
