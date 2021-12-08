@@ -1,10 +1,7 @@
 import Handlebars from 'handlebars/dist/handlebars.runtime';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
-
-type Props = Record<string, any>;
-type Children = Record<string, Block>;
-type Events = Record<string, string>;
+import { Events, Props, Children } from '../types';
 abstract class Block {
 
     private EVENTS: Events = {

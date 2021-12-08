@@ -1,9 +1,9 @@
+import { Props } from '../../types';
 import Block from '../../utils/Block';
 /* @ts-ignore */
 import template from './input.hbs';
 import './input.scss';
 
-type Props = Record<string, any>;
 
 class Input extends Block {
     constructor(props: Props = {}) {

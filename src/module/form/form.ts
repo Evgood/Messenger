@@ -1,3 +1,4 @@
+import { Props, InnerChildren } from '../../types';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
 import Block from '../../utils/Block';
@@ -5,11 +6,9 @@ import Block from '../../utils/Block';
 import template from './form.hbs';
 import './form.scss';
 
-type Props = Record<string, any>;
-type Children = Record<string, Block>[];
 
 class Form extends Block {
-    constructor(props: Props = {}, innerChildren: Children = []) {
+    constructor(props: Props = {}, innerChildren: InnerChildren = []) {
 
         const button = new Button({
             className: props.button.className,

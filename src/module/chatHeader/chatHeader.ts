@@ -1,10 +1,10 @@
+import { Props } from '../../types';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import Block from '../../utils/Block';
 /* @ts-ignore */
 import template from './chatHeader.hbs';
 
-type Props = Record<string, any>;
 
 class ChatHeader extends Block {
     constructor(props: Props = {}) {

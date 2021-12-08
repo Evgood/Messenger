@@ -1,10 +1,10 @@
+import { Props } from '../../types';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
 import Block from '../../utils/Block';
 /* @ts-ignore */
 import template from './messageControls.hbs';
 
-type Props = Record<string, any>;
 
 class MessageControls extends Block {
     constructor(props: Props = {}) {

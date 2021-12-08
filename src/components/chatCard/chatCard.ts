@@ -1,9 +1,9 @@
 import Block from '../../utils/Block';
+import { Props } from '../../types';
 /* @ts-ignore */
 import template from './chatCard.hbs';
 import './chatCard.scss';
 
-type Props = Record<string, any>;
 
 class СhatCard extends Block {
     constructor(props: Props = {}) {

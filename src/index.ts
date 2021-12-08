@@ -1,6 +1,7 @@
 import './styles/index.scss';
 
 import renderDOM from './utils/renderDom'
+
 import Chat from './pages/chat/chat';
 import Login from './pages/login/login';
 import Register from './pages/register/register';

@@ -1,9 +1,8 @@
-import Button from '../../components/button/button';
+import { Props } from '../../types';
 import Block from '../../utils/Block';
+import Button from '../../components/button/button';
 /* @ts-ignore */
 import template from './messageHeader.hbs';
-
-type Props = Record<string, any>;
 
 class MessageHeader extends Block {
     constructor(props: Props = {}) {

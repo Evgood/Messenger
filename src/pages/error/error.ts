@@ -1,10 +1,11 @@
-import ErrorComponent from '../../components/error/error';
+import { Props } from '../../types';
 import Block from '../../utils/Block'
+
+import ErrorComponent from '../../components/error/error';
 /* @ts-ignore */
 import template from './error.hbs';
 /* @ts-ignore */
 
-type Props = Record<string, any>;
 
 class ErrorPage extends Block {
     constructor(props: Props = {}) {

@@ -1,16 +1,16 @@
+import { Props } from '../../types';
+import Block from '../../utils/Block'
+
 import MessageHeader from '../../module/messageHeader/messageHeader';
 import ChatHeader from '../../module/chatHeader/chatHeader';
+import MessageControls from '../../module/messageControls/messageControls';
+import MessageList from '../../module/messageList/messageList';
 import СhatCard from '../../components/chatCard/chatCard';
-import Block from '../../utils/Block'
 /* @ts-ignore */
 import template from './chat.hbs';
 import { svg } from '../../../static/images/svg';
 /* @ts-ignore */
 import avatar from '../../../static/images/avatars/01.jpg';
-import MessageControls from '../../module/messageControls/messageControls';
-import MessageList from '../../module/messageList/messageList';
-
-type Props = Record<string, any>;
 
 class Chat extends Block {
     constructor(props: Props = {}) {

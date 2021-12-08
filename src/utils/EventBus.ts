@@ -1,4 +1,4 @@
-type Listeners = Record<string, Function[]>;
+import { Listeners } from '../types';
 class EventBus {
 
     private listeners: Listeners = {};

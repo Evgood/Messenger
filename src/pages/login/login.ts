@@ -1,11 +1,12 @@
-import Input from '../../components/input/input';
-import Form from '../../module/form/form';
+import { Props } from '../../types';
 import Block from '../../utils/Block'
+
+import Form from '../../module/form/form';
+import Input from '../../components/input/input';
 /* @ts-ignore */
 import template from './login.hbs';
 /* @ts-ignore */
 
-type Props = Record<string, any>;
 
 class Login extends Block {
     constructor(props: Props = {}) {
