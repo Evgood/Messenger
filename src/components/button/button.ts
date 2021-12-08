@@ -1,3 +1,4 @@
+import { Props } from '../../types';
 import Block from '../../utils/Block';
 import template from './button.hbs';
 import './button.scss';

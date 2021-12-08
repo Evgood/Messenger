@@ -1,7 +1,6 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block';
 import Button from '../../components/button/button';
-/* @ts-ignore */
 import template from './messageHeader.hbs';
 
 class MessageHeader extends Block {

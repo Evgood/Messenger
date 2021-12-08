@@ -1,11 +1,8 @@
 import { Props, InnerChildren } from '../../types';
-import Input from '../../components/input/input';
 import Button from '../../components/button/button';
 import Block from '../../utils/Block';
-/* @ts-ignore */
 import template from './form.hbs';
 import './form.scss';
-
 
 class Form extends Block {
     constructor(props: Props = {}, innerChildren: InnerChildren = []) {

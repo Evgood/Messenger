@@ -1,3 +1,4 @@
+// @ts-ignore
 import Handlebars from 'handlebars/dist/handlebars.runtime';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
@@ -185,7 +186,7 @@ abstract class Block {
 
 
     private getChildren(propsAndChildren: Props) {
-        const children = {};
+        const children: Record<string, Block> | any = {};
         const props: Props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {

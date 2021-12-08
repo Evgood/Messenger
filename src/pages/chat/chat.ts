@@ -6,11 +6,10 @@ import ChatHeader from '../../module/chatHeader/chatHeader';
 import MessageControls from '../../module/messageControls/messageControls';
 import MessageList from '../../module/messageList/messageList';
 import СhatCard from '../../components/chatCard/chatCard';
-/* @ts-ignore */
+
 import template from './chat.hbs';
-import { svg } from '../../../static/images/svg';
-/* @ts-ignore */
 import avatar from '../../../static/images/avatars/01.jpg';
+import { svg } from '../../../static/images/svg';
 
 class Chat extends Block {
     constructor(props: Props = {}) {

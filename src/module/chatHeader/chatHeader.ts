@@ -2,9 +2,7 @@ import { Props } from '../../types';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import Block from '../../utils/Block';
-/* @ts-ignore */
 import template from './chatHeader.hbs';
-
 
 class ChatHeader extends Block {
     constructor(props: Props = {}) {
