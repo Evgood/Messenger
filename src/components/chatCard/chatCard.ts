@@ -1,5 +1,5 @@
-import Block from '../../utils/Block';
 import { Props } from '../../types';
+import Block from '../../utils/Block';
 /* @ts-ignore */
 import template from './chatCard.hbs';
 import './chatCard.scss';
