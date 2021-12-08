@@ -5,6 +5,7 @@ import Chat from './pages/chat/chat';
 import Login from './pages/login/login';
 import Register from './pages/register/register';
 import ErrorPage from './pages/error/error';
+import Settings from './pages/settings/settings';
 
 const path: string = window.location.pathname;
 
@@ -22,7 +23,7 @@ switch (path) {
         renderDOM('#root', new Chat());
         break;
     case '/settings':
-        // TODO renderDOM('#root', new Settings());
+        renderDOM('#root', new Settings());
         break;
     case '/500':
         renderDOM('#root', new ErrorPage({ code: 500 }));
