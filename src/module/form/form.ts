@@ -1,24 +1,14 @@
 import { Props, InnerChildren } from '../../types';
-import Button from '../../components/button/button';
 import Block from '../../utils/Block';
+import { formSubmit } from '../../utils/events'
+
+import Button from '../../components/button/button';
+
 import template from './form.hbs';
 import './form.scss';
 
 class Form extends Block {
     constructor(props: Props = {}, innerChildren: InnerChildren = []) {
-
-        const eventSubmit = (event: Event) => {
-            event.preventDefault();
-
-            const data: Record<string, string> = {};
-            const inputFields = document.querySelectorAll('.form__input');
-
-            inputFields.forEach((input: HTMLInputElement) => {
-                data[input.name] = input.value
-            });
-
-            console.log(data);
-        }
 
         const button = new Button({
             className: props.button.className,
@@ -34,7 +24,7 @@ class Form extends Block {
             footerFormLinkName: props.footerFormLinkName,
             footerFormLinkUrl: props.footerFormLinkUrl,
             events: {
-                submit: eventSubmit,
+                submit: formSubmit,
             }
         });
     }

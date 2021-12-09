@@ -4,9 +4,19 @@
 .input {
     @include boder-radius_m;
     font-family: inherit;
-    color: $color-label;
+    color: $color-black;
     background: $color-input;
     border: 1px solid $color-stroke;
+    transition: all .2s ease;
+
+    &:hover {
+        border: 1px solid $color-stroke-hover;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px $color-primary;
+    }
 
     &__search {
         height: 36px;
@@ -19,5 +29,17 @@
         height: 36px;
         font-size: 12px;
         padding-left: 12px;
+    }
+
+    &__error-label {
+        margin: -10px 0 0 16px;
+        text-align: left;
+        font-size: 10px;
+        color: $color-label;
+    }
+
+    &_error {
+        border: 2px solid $color-warning-light;
+        color: $color-warning;
     }
 }

@@ -2,6 +2,7 @@ import Handlebars from 'handlebars/dist/handlebars.runtime';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
 import { Events, Props, Children } from '../types';
+
 abstract class Block {
 
     private EVENTS: Events = {
@@ -150,10 +151,6 @@ abstract class Block {
 
     private createResources(): void {
         this.element = this.createDocumentElement(this.tagName);
-
-        if (this.props.className) {
-            this.element.setAttribute('class', this.props.className);
-        }
     }
 
 

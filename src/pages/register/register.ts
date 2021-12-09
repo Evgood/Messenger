@@ -1,5 +1,6 @@
 import { Props } from '../../types';
-import Block from '../../utils/Block'
+import Block from '../../utils/Block';
+import { inputFocus, inputBlur } from '../../utils/events';
 
 import Form from '../../module/form/form';
 import Input from '../../components/input/input';
@@ -16,6 +17,10 @@ class Register extends Block {
                     type: 'text',
                     name: 'first_name',
                     placeholder: 'Имя',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
             {
@@ -24,6 +29,10 @@ class Register extends Block {
                     type: 'text',
                     name: 'second_name',
                     placeholder: 'Фамилия',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
             {
@@ -32,6 +41,10 @@ class Register extends Block {
                     type: 'text',
                     name: 'login',
                     placeholder: 'Логин',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
             {
@@ -40,6 +53,10 @@ class Register extends Block {
                     type: 'tel',
                     name: 'phone',
                     placeholder: 'Телефон',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
             {
@@ -48,6 +65,10 @@ class Register extends Block {
                     type: 'email',
                     name: 'email',
                     placeholder: 'Почта',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
             {
@@ -56,6 +77,10 @@ class Register extends Block {
                     type: 'password',
                     name: 'password',
                     placeholder: 'Пароль',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
             {
@@ -64,6 +89,10 @@ class Register extends Block {
                     type: 'password',
                     name: 'password',
                     placeholder: 'Пароль еще раз',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
         ]

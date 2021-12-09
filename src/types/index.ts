@@ -13,3 +13,15 @@ export type Options = {
     headers?: Record<string, string>
     data?: Record<string, any>
 };
+
+export type Verify = {
+    verify: boolean
+    message: string
+};
+export type ValidationFields = Record<string, {
+    pattern: RegExp,
+    error: string,
+    sucsess: string
+}>;
+
+export type FormData = Record<string, string>;

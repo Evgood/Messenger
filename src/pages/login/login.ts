@@ -1,5 +1,6 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block'
+import { inputFocus, inputBlur } from '../../utils/events'
 
 import Form from '../../module/form/form';
 import Input from '../../components/input/input';
@@ -16,6 +17,10 @@ class Login extends Block {
                     type: 'text',
                     name: 'login',
                     placeholder: 'Логин',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
             {
@@ -24,6 +29,10 @@ class Login extends Block {
                     type: 'password',
                     name: 'password',
                     placeholder: 'Пароль',
+                    events: {
+                        focus: inputFocus,
+                        blur: inputBlur,
+                    }
                 })
             },
         ]
@@ -33,21 +42,11 @@ class Login extends Block {
                 className: 'form__button button',
                 type: 'submit',
                 content: 'Войти',
-                events: {
-                    click: () => {
-                        console.log('Event click');
-                    }
-                }
             },
             formTitle: 'Вход',
             footerFormDesc: 'Нет аккаунта?',
             footerFormLinkName: 'Регистрация',
             footerFormLinkUrl: '/register',
-            events: {
-                click: () => {
-                    console.log('Event click');
-                }
-            }
         }, innerInputs)
 
         super(
