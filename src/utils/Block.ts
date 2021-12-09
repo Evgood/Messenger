@@ -72,7 +72,15 @@ abstract class Block {
         this.componentDidMount();
 
         Object.values(this.children).forEach((child) => {
-            child.dispatchMountComponent();
+            if (Array.isArray(child)) {
+                child.forEach((innerChild: Children) => {
+                    Object.values(innerChild).forEach((child) => {
+                        child.dispatchMountComponent();
+                    })
+                })
+            } else {
+                child.dispatchMountComponent();
+            }
         });
     }
 
