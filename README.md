@@ -25,7 +25,17 @@ Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
 404 page: https://affectionate-heyrovsky-b5e847.netlify.app/404  
 500 page: https://affectionate-heyrovsky-b5e847.netlify.app/500  
 
+## Функционал
+
+1. Реализован функционал компонента с жизненым циклом (componentDidMount, componentDidUpdate, componentWillUnmount, render, init)  
+2. Реализована шина событий для жизеного цикла компонента  
+3. Все приложение переписано на TS и с импользованием компонетов
+4. Реализована возможность передавать в пропсах дочерние элементы и массив дочерних элементов  
+5. Реализована валидация полей формы  
+6. Реализован класс для работы с запросами
+7. Добавлен ESLint и Stylelint
 
 ## Pull requests
 
-Sprint 1: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/1
+Sprint 1: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/1  
+Sprint 2: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/2
