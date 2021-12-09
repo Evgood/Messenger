@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Props } from '../../types';
 import Block from '../../utils/Block'
 
@@ -6,6 +7,7 @@ import ChatHeader from '../../module/chatHeader/chatHeader';
 import MessageControls from '../../module/messageControls/messageControls';
 import MessageList from '../../module/messageList/messageList';
 import СhatCard from '../../components/chatCard/chatCard';
+import Message from '../../components/message/message';
 
 import template from './chat.hbs';
 import avatar from '../../../static/images/avatars/01.jpg';
@@ -86,7 +88,34 @@ class Chat extends Block {
             avatarName: 'Дамир Юсипов',
         });
 
-        const messageList = new MessageList({});
+        const innerMessage = [
+            {
+                message: new Message({
+                    src: avatar,
+                    name: 'Карина Терехова',
+                    time: '15:46',
+                    text: 'Позвонил на основной номер, хочет продать свою 3к и купить две своим детям.',
+                })
+            },
+            {
+                message: new Message({
+                    src: avatar,
+                    name: 'Дамир Юсипов',
+                    time: '15:51',
+                    text: 'Спасибо, Карина. Взял в работу',
+                })
+            },
+            {
+                message: new Message({
+                    src: avatar,
+                    name: 'Дамир Юсипов',
+                    time: '15:52',
+                    text: 'Что-то еще нужно?',
+                })
+            },
+        ]
+
+        const messageList = new MessageList({}, innerMessage);
 
         const messageControls = new MessageControls({
             addButton: {
