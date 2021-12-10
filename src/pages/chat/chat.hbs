@@ -1,12 +1,12 @@
 <div class="grid">
     <section class="left">
 
-        {{>chatHeader chatHeaderContext}}
+        {{{ chatHeader }}}
 
         <section class="chat-list">
 
             {{#each chatCards}}
-                {{>chatCard chatCardContext}}
+                {{{ chatCard }}}
             {{/each}}
 
         </section>
@@ -14,9 +14,9 @@
 
     <section class="messages-layout">
 
-        {{>mesageHeader mesageHeaderContext}}
-        {{>mesageList}}
-        {{>messageControls messageControlsContext}}
+        {{{ messageHeader }}}
+        {{{ messageList }}}
+        {{{ messageControls }}}
 
     </section>
 </div>

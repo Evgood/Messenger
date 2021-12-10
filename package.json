@@ -22,11 +22,20 @@
   },
   "homepage": "https://github.com/Evgood/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "express": "^4.17.1",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
     "handlebars": "^4.7.7",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "path": "^0.12.7",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "stylelint": "^14.1.0",
+    "stylelint-scss": "^4.0.1",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "utils": "^0.3.1"
   }
 }

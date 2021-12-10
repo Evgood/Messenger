@@ -1,1 +1,17 @@
-<input class="{{ className }}" type="{{ type }}" name="{{ name }}" placeholder="{{ placeholder }}">
+<input 
+{{#if className}}
+    class="{{ className }}" 
+{{/if}}
+{{#if type}}
+    type="{{ type }}" 
+{{/if}}
+{{#if name}}
+    name="{{ name }}" 
+{{/if}}
+{{#if placeholder}}
+    placeholder="{{ placeholder }}"
+{{/if}}
+{{#if value}} 
+    value="{{ value }}"
+{{/if}}
+>

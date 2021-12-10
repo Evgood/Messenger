@@ -100,6 +100,11 @@ body {
         width: 56px;
         height: 56px;
     }
+
+    &_message-list {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 .chat-list {
@@ -123,4 +128,15 @@ body {
         grid-template-columns: min-content 1fr min-content;
         gap: 12px;
     }
+}
+
+.message-list {
+    overflow-y: auto;
+    height: calc(100vh - 120px);
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 12px;
 }

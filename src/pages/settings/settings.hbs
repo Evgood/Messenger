@@ -1,7 +1,47 @@
-{{>chatHeader chatHeaderContext}}
+<main>
+    {{{ chatHeader }}}
 
-<section class="setting">
-    {{#each settingCard}}
-        {{>settingCard settingCardContext}}
-    {{/each}}
-</section>
+    <section class="setting">
+        <div class="setting__card">
+            <div class="setting__avatar">
+                <img class="setting__avatar-image" src="{{ avatarUrl }}">
+            </div>
+        </div>
+        <div class="setting__card">
+            <div class="setting__card-line">
+                <span class="setting__label">Имя</span>
+                <span class="setting__value">{{ name }}</span>
+            </div>
+            <div class="setting__card-line">
+                <span class="setting__label">Фамилия</span>
+                <span class="setting__value">{{ surname }}</span>
+            </div>
+            <div class="setting__card-line">
+                <span class="setting__label">Имя в чате</span>
+                <span class="setting__value">{{ chatName }}</span>
+            </div>
+        </div>
+        <div class="setting__card">
+            <div class="setting__card-line">
+                <span class="setting__label">Логин</span>
+                <span class="setting__value">{{ login }}</span>
+            </div>
+            <div class="setting__card-line">
+                <span class="setting__label">Почта</span>
+                <span class="setting__value">{{ email }}</span>
+            </div>
+            <div class="setting__card-line">
+                <span class="setting__label">Телефон</span>
+                <span class="setting__value">{{ phone }}</span>
+            </div>
+        </div>
+        <div class="setting__card">
+            <div class="setting__card-line">
+                <a href="#" class="setting__link">Изменить пароль</a>
+            </div>
+            <div class="setting__card-line">
+                <a href="#" class="setting__link setting__link_exit">Выйти</a>
+            </div>
+        </div>
+    </section>
+</main>

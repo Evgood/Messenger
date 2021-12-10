@@ -1,13 +1,13 @@
 <section class="header">
     <div class="header__left">
 
-        {{>button buttonContext}}
+        {{{ button }}}
 
-        {{#if withInput}}
-            {{>input inputContext}}
+        {{#if input}}
+            {{{ input }}}
         {{/if}}
 
-        {{#if withHeaderTitle}}
+        {{#if headerTitle}}
             <h1 class="header__title">{{ headerTitle }}</h1>
         {{/if}}
 
