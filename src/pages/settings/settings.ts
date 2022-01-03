@@ -1,5 +1,6 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block'
+import { goChat } from '../../utils/events';
 
 import ChatHeader from '../../module/chatHeader/chatHeader';
 
@@ -17,6 +18,9 @@ class Settings extends Block {
                 className: 'header__button button',
                 type: 'button',
                 content: svg.setting,
+                events: {
+                    click: goChat,
+                }
             },
             headerTitle: 'Настройки',
         });
