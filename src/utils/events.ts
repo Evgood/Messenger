@@ -1,5 +1,18 @@
 import { Verify, FormData } from '../types'
 import Validation from './Validation';
+import Router from './Router';
+
+const goSetting = (event: Event): void => {
+    const router = new Router();
+    router.go('/settings');
+}
+
+
+const goChat = (event: Event): void => {
+    const router = new Router();
+    router.go('/chat');
+}
+
 
 const inputFocus = (event: Event): void => {
     const input = event.target as HTMLInputElement;
@@ -70,4 +83,4 @@ const toggleErrorElement = (target: HTMLInputElement, verifyResult: Verify): voi
 }
 
 
-export { inputFocus, inputBlur, formSubmit };
+export { inputFocus, inputBlur, formSubmit, goSetting, goChat };
