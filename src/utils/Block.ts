@@ -254,12 +254,12 @@ abstract class Block {
 
 
     public show() {
-        
+        this.getElement().style.display = 'block';
     }
 
 
     public hide() {
-        
+        this.getElement().style.display = 'none';
     }
 }
 
