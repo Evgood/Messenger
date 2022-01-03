@@ -251,6 +251,16 @@ abstract class Block {
 
         return fragment.content;
     }
+
+
+    public show() {
+        
+    }
+
+
+    public hide() {
+        
+    }
 }
 
 export default Block;
