@@ -1,3 +1,4 @@
+import { Props } from '../types';
 import Route from './Route';
 
 class Router {
@@ -21,8 +22,8 @@ class Router {
     }
 
 
-    public use(pathname: string, block: any): Router {
-        const route = new Route(pathname, block);
+    public use(pathname: string, block: any, props: Props = {}): Router {
+        const route = new Route(pathname, block, props);
         this.routes.push(route);
 
         return this;
@@ -31,22 +32,16 @@ class Router {
 
     public start(): void {
         window.addEventListener('popstate', (event => {
-            console.log(event);
+            console.log('popstate', event);
             // this.onRoute(event.currentTarget.location.pathname);
         }));
-
-        // window.onpopstate = (event => {
-        //     this.onRoute(event.currentTarget.location.pathname);
-        // }).bind(this);
 
         this.onRoute(window.location.pathname);
     }
 
 
     private onRoute(pathname: string) {
-        const route = this.getRoute(pathname);
-
-        if (!route) return;
+        let route = this.getRoute(pathname);
 
         if (this.currentRoute && this.currentRoute !== route) {
             this.currentRoute.leave();
@@ -73,10 +68,9 @@ class Router {
     }
 
 
-    private getRoute(pathname: string) {
-        return this.routes.find(route => route.match(pathname));
+    private getRoute(pathname: string): Route {
+        return this.routes.find(route => route.match(pathname)) || this.getRoute('/404');
     }
 }
-
 
 export default Router;
