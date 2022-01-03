@@ -32,23 +32,10 @@ class Router {
 
     public start(): void {
         window.addEventListener('popstate', (event => {
-            console.log('popstate', event);
-            // this.onRoute(event.currentTarget.location.pathname);
+            this.onRoute(event.currentTarget.location.pathname);
         }));
 
         this.onRoute(window.location.pathname);
-    }
-
-
-    private onRoute(pathname: string) {
-        let route = this.getRoute(pathname);
-
-        if (this.currentRoute && this.currentRoute !== route) {
-            this.currentRoute.leave();
-        }
-
-        this.currentRoute = route;
-        route.render();
     }
 
 
@@ -65,6 +52,18 @@ class Router {
 
     public forward(): void {
         this.history.forward();
+    }
+
+
+    private onRoute(pathname: string): void {
+        let route = this.getRoute(pathname);
+
+        if (this.currentRoute && this.currentRoute !== route) {
+            this.currentRoute.leave();
+        }
+
+        this.currentRoute = route;
+        route.render();
     }
 
 
