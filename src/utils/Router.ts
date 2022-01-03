@@ -31,9 +31,10 @@ class Router {
 
 
     public start(): void {
-        window.addEventListener('popstate', (event => {
+        window.addEventListener('popstate', event => {
+            //@ts-ignore
             this.onRoute(event.currentTarget.location.pathname);
-        }));
+        });
 
         this.onRoute(window.location.pathname);
     }
