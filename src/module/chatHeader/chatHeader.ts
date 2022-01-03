@@ -13,6 +13,7 @@ class ChatHeader extends Block {
             className: props.button.className,
             type: props.button.type,
             content: props.button.content,
+            events: props.button.events,
         })
 
         if (props.input) {
