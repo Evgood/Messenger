@@ -1,22 +1,24 @@
-<div class="grid">
-    <section class="left">
+<div>
+    <div class="grid">
+        <section class="left">
 
-        {{{ chatHeader }}}
+            {{{ chatHeader }}}
 
-        <section class="chat-list">
+            <section class="chat-list">
 
-            {{#each chatCards}}
+                {{#each chatCards}}
                 {{{ chatCard }}}
-            {{/each}}
+                {{/each}}
+
+            </section>
+        </section>
+
+        <section class="messages-layout">
+
+            {{{ messageHeader }}}
+            {{{ messageList }}}
+            {{{ messageControls }}}
 
         </section>
-    </section>
-
-    <section class="messages-layout">
-
-        {{{ messageHeader }}}
-        {{{ messageList }}}
-        {{{ messageControls }}}
-
-    </section>
+    </div>
 </div>
