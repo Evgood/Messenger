@@ -43,7 +43,7 @@ class HTTPTransport {
 
 
     private request = (url: string, options: Options, timeout = 5000) => {
-        const { headers = {}, method, data } = options;
+        const { headers = {}, method, credentials, data, body } = options;
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
@@ -60,6 +60,10 @@ class HTTPTransport {
                 xhr.setRequestHeader(key, headers[key]);
             });
 
+            if (credentials) {
+                xhr.withCredentials = true;
+            }
+
             xhr.timeout = timeout;
 
             xhr.onload = () => resolve(xhr);
@@ -67,10 +71,10 @@ class HTTPTransport {
             xhr.onerror = reject;
             xhr.ontimeout = reject;
 
-            if (isGet || !data) {
+            if (isGet) {
                 xhr.send();
             } else {
-                xhr.send(JSON.stringify(data));
+                xhr.send(JSON.stringify(body));
             }
         });
     };
