@@ -1,5 +1,5 @@
 import Block from './Block';
-import renderDOM from '../utils/service/renderDom';
+import renderDOM from '../utils/services/renderDom';
 import { Props } from '../types';
 
 class Route {
