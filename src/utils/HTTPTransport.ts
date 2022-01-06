@@ -67,6 +67,7 @@ class HTTPTransport {
             xhr.timeout = timeout;
 
             xhr.onload = () => resolve(xhr);
+            xhr.responseType = 'json';
             xhr.onabort = reject;
             xhr.onerror = reject;
             xhr.ontimeout = reject;
