@@ -11,7 +11,7 @@ export type InnerChildren = Record<string, Block>[];
 export type Options = {
     method: string
     timeout?: number
-    credentials?: string
+    credentials?: boolean
     mode?: string
     headers?: Record<string, string>
     body?: Record<string, any>
