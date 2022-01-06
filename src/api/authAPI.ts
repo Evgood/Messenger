@@ -6,15 +6,15 @@ class AuthAPI extends BaseAPI {
 
     private signUpUrl: string;
     private signInUrl: string;
-    private getUserDataUrl: string;
+    private getUserInfoUrl: string;
     private logoutUrl: string;
 
-    constructor() {
+    public constructor() {
         super();
 
         this.signUpUrl = `${this.baseUrl}/auth/signup`;
         this.signInUrl = `${this.baseUrl}/auth/signin`;
-        this.getUserDataUrl = `${this.baseUrl}/auth/user`;
+        this.getUserInfoUrl = `${this.baseUrl}/auth/user`;
         this.logoutUrl = `${this.baseUrl}/auth/logout`;
     }
 
@@ -22,8 +22,7 @@ class AuthAPI extends BaseAPI {
     public signUp(data: BodyRequest) {
         const options: Options = {
             method: 'POST',
-            credentials: 'include',
-            mode: 'cors',
+            credentials: true,
             headers: {
                 'content-type': 'application/json',
             },
@@ -37,8 +36,7 @@ class AuthAPI extends BaseAPI {
     public signIn(data: BodyRequest) {
         const options: Options = {
             method: 'POST',
-            credentials: 'include',
-            mode: 'cors',
+            credentials: true,
             headers: {
                 'content-type': 'application/json',
             },
@@ -49,22 +47,21 @@ class AuthAPI extends BaseAPI {
     }
 
 
-    public getUserData() {
+    public getUserInfo() {
         const options: Options = {
             method: 'GET',
-            credentials: 'include',
-            mode: 'cors',
+            credentials: true,
         }
 
-        return this.HTTP.get(this.getUserDataUrl, options);
+        return this.HTTP.get(this.getUserInfoUrl, options);
     }
 
 
     public logout() {
         const options: Options = {
             method: 'POST',
-            credentials: 'include',
-            mode: 'cors',
+            credentials: true,
+            body: {}
         }
 
         return this.HTTP.post(this.logoutUrl, options);
