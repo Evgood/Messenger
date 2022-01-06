@@ -1,6 +1,7 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block'
-import { inputFocus, inputBlur } from '../../utils/events'
+import { inputFocus, inputBlur, signIn, goToRegister } from '../../utils/events'
+// import AuthController from '../../controllers/auth';
 
 import Form from '../../module/form/form';
 import Input from '../../components/input/input';
@@ -46,17 +47,15 @@ class Login extends Block {
             formTitle: 'Вход',
             footerFormDesc: 'Нет аккаунта?',
             footerFormLinkName: 'Регистрация',
-            footerFormLinkUrl: '/register',
+            events: {
+                submit: signIn,
+                click: goToRegister,
+            }
         }, innerInputs)
 
-        super(
-            'div',
-            {
-                ...props,
-                form
-            }
-        );
+        super('div', { ...props, form });
     }
+
 
     render() {
         return this.setTemplate(template, this.props);
