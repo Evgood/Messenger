@@ -1,26 +1,38 @@
 import { Verify, FormData } from '../types'
 import Validation from './Validation';
 import Router from './Router';
+import AuthController from '../controllers/auth';
 
-const goSetting = (event: Event): void => {
+
+export const goTo = (url: string): void => {
     const router = new Router();
-    router.go('/settings');
+    router.go(url);
 }
 
 
-const goChat = (event: Event): void => {
-    const router = new Router();
-    router.go('/chat');
+export const goToRegister = (event: Event): void => {
+    //@ts-ignore
+    if (event.target.className === 'form__link') {
+        goTo('/register');
+    }
 }
 
 
-const inputFocus = (event: Event): void => {
+export const goToLogin = (event: Event): void => {
+    //@ts-ignore
+    if (event.target.className === 'form__link') {
+        goTo('/login');
+    }
+}
+
+
+export const inputFocus = (event: Event): void => {
     const input = event.target as HTMLInputElement;
     input.classList.remove('input_error');
 }
 
 
-const inputBlur = (event: Event): void => {
+export const inputBlur = (event: Event): void => {
     const input = event.target as HTMLInputElement;
     const verifyResult = Validation.verify(input.name, input.value);
 
@@ -28,9 +40,31 @@ const inputBlur = (event: Event): void => {
 }
 
 
-const formSubmit = (event: Event): void => {
+export const signIn = (event: Event) => {
     event.preventDefault();
 
+    const data = validationForm();
+
+    if (data) {
+        const auth = new AuthController();
+        auth.signIn(data);
+    }
+}
+
+
+export const signUp = (event: Event) => {
+    event.preventDefault();
+
+    const data = validationForm();
+
+    if (data) {
+        const auth = new AuthController();
+        auth.signUp(data);
+    }
+}
+
+
+const validationForm = (): FormData | void => {
     const data: FormData = {};
     const inputFields = document.querySelectorAll('.form__input');
     let validationError: number = 0;
@@ -42,11 +76,7 @@ const formSubmit = (event: Event): void => {
         data[input.name] = input.value;
     });
 
-    if (validationError === 0) {
-        console.log('Данные формы', data);
-    } else {
-        console.log('Данные заполнены не верно');
-    }
+    return (validationError === 0) ? data : undefined;
 }
 
 
@@ -81,6 +111,3 @@ const toggleErrorElement = (target: HTMLInputElement, verifyResult: Verify): voi
         target.nextElementSibling.remove();
     }
 }
-
-
-export { inputFocus, inputBlur, formSubmit, goSetting, goChat };
