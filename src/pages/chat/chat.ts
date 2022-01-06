@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Props } from '../../types';
 import Block from '../../utils/Block';
-import { goSetting } from '../../utils/events';
+import { goTo } from '../../utils/events';
 
 import MessageHeader from '../../module/messageHeader/messageHeader';
 import ChatHeader from '../../module/chatHeader/chatHeader';
@@ -23,7 +23,7 @@ class Chat extends Block {
                 type: 'button',
                 content: svg.setting,
                 events: {
-                    click: goSetting,
+                    click: goTo.bind(null, '/settings'),
                 }
             },
             input: {
