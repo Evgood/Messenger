@@ -12,9 +12,8 @@ const router = new Router();
 
 router
     .use('/', Login)
-    .use('/login', Login)
-    .use('/register', Register)
-    .use('/chat', Chat)
+    .use('/sign-up', Register)
+    .use('/messenger', Chat)
     .use('/settings', Settings)
     .use('/500', ErrorPage, { code: 500 })
     .use('/404', ErrorPage, { code: 404 })
