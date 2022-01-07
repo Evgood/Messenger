@@ -46,8 +46,19 @@ abstract class Block {
         return this.element;
     }
 
+
     public deleteElement(): void {
         this.eventBus.emit(this.EVENTS.FLOW_CWU);
+    }
+
+    
+    public show() {
+        this.getElement().style.display = 'block';
+    }
+
+
+    public hide() {
+        this.getElement().style.display = 'none';
     }
 
 
@@ -250,16 +261,6 @@ abstract class Block {
         });
 
         return fragment.content;
-    }
-
-
-    public show() {
-        this.getElement().style.display = 'block';
-    }
-
-
-    public hide() {
-        this.getElement().style.display = 'none';
     }
 }
 
