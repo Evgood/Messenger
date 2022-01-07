@@ -24,19 +24,15 @@ class Route {
 
     public leave(): void {
         if (this.block) {
-            this.block.hide();
+            this.block.deleteElement();
         }
     }
 
 
     public render(): void {
-        if (!this.block) {
-            this.block = new this.blockClass(this.props);
-            renderDOM('#root', this.block);
-            return;
-        }
-
-        this.block.show();
+        this.block = new this.blockClass(this.props);
+        renderDOM('#root', this.block);
+        return;
     }
 }
 
