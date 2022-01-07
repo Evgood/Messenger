@@ -1,6 +1,9 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block'
-import { goChat } from '../../utils/events';
+import store, { StoreEvents } from '../../utils/Store';
+import { settingClick } from '../../utils/events';
+import router from '../../utils/Router';
+import AuthController from '../../controllers/auth';
 
 import ChatHeader from '../../module/chatHeader/chatHeader';
 
@@ -8,7 +11,6 @@ import template from './settings.hbs';
 import './settings.scss';
 
 import svg from '../../../static/images/svg';
-import avatar from '../../../static/images/avatars/01.jpg';
 
 class Settings extends Block {
     constructor(props: Props = {}) {
@@ -19,30 +21,26 @@ class Settings extends Block {
                 type: 'button',
                 content: svg.setting,
                 events: {
-                    click: goChat,
+                    click: () => router.go('/messenger'),
                 }
             },
             headerTitle: 'Настройки',
         });
 
         const settingProps = {
-            avatarUrl: avatar,
-            name: 'Евгений',
-            surname: 'Горохов',
-            chatName: 'Женя',
-            login: 'Evgoo',
-            email: 'gorohovev@list.ru',
-            phone: '+7 915 351-00-07',
-        }
-
-        super(
-            'div',
-            {
-                ...props,
-                ...settingProps,
-                chatHeader,
+            events: {
+                click: settingClick,
             }
-        );
+        };
+
+        super('div', { ...props, ...settingProps, ...store.getState(), chatHeader });
+
+        const auth = new AuthController();
+        auth.getUserInfo();
+
+        store.on(StoreEvents.Updated, () => {
+            this.setProps(store.getState());
+        });
     }
 
     render() {

@@ -1,16 +1,15 @@
 import { BodyRequest } from '../types';
 import AuthAPI from '../api/authAPI';
-import Router from '../utils/Router';
+import router from '../utils/Router';
+import store from '../utils/Store';
 
 
 class AuthController {
 
     private authAPIInstance: AuthAPI;
-    private router: Router;
 
     public constructor() {
         this.authAPIInstance = new AuthAPI();
-        this.router = new Router();
     }
 
 
@@ -23,7 +22,7 @@ class AuthController {
                 } else {
                     console.log(xhr.status, xhr.response);
 
-                    this.router.go('/chat');
+                    router.go('/messenger');
                 }
             });
     }
@@ -38,7 +37,7 @@ class AuthController {
                 } else {
                     console.log(xhr.status, xhr.response);
 
-                    this.router.go('/chat');
+                    router.go('/messenger');
                 }
             });
     }
@@ -47,9 +46,9 @@ class AuthController {
     public getUserInfo() {
         this.authAPIInstance
             .getUserInfo()
-            .then((xhr: XMLHttpRequest) => {
-                console.log(xhr.status, xhr.response);
-            });
+            .then((xhr: XMLHttpRequest) => (
+                store.setState('user', xhr.response)
+            ));
     }
 
 
@@ -61,7 +60,7 @@ class AuthController {
                     console.log(xhr.status, xhr.response);
                 } else {
                     console.log(xhr.status, xhr.response);
-                    this.router.go('/login');
+                    router.go('/');
                 }
             });
     }

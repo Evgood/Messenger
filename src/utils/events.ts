@@ -1,19 +1,13 @@
 import { Verify, FormData } from '../types'
 import Validation from './Validation';
-import Router from './Router';
+import router from './Router';
 import AuthController from '../controllers/auth';
-
-
-export const goTo = (url: string): void => {
-    const router = new Router();
-    router.go(url);
-}
 
 
 export const goToRegister = (event: Event): void => {
     //@ts-ignore
     if (event.target.className === 'form__link') {
-        goTo('/register');
+        router.go('/sign-up');
     }
 }
 
@@ -21,7 +15,16 @@ export const goToRegister = (event: Event): void => {
 export const goToLogin = (event: Event): void => {
     //@ts-ignore
     if (event.target.className === 'form__link') {
-        goTo('/login');
+        router.go('/');
+    }
+}
+
+
+export const settingClick = (event: Event): void => {
+    //@ts-ignore
+    if (event.target.dataset.value === 'exit') {
+        const auth = new AuthController();
+        auth.logout();
     }
 }
 

@@ -6,16 +6,8 @@ class Router {
     public routes: Route[];
     public history: History;
     private currentRoute: Route | null;
-    private static instance: Router | null;
-
 
     constructor() {
-        if (Router.instance) {
-            return Router.instance;
-        }
-
-        Router.instance = this;
-
         this.routes = [];
         this.history = window.history;
         this.currentRoute = null;
@@ -73,4 +65,4 @@ class Router {
     }
 }
 
-export default Router;
+export default new Router();

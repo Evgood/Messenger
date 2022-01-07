@@ -1,7 +1,6 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block'
 import { inputFocus, inputBlur, signIn, goToRegister } from '../../utils/events'
-// import AuthController from '../../controllers/auth';
 
 import Form from '../../module/form/form';
 import Input from '../../components/input/input';
