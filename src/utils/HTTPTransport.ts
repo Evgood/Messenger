@@ -74,9 +74,15 @@ class HTTPTransport {
 
             if (isGet) {
                 xhr.send();
-            } else {
+            } 
+
+            if (body) {
                 xhr.send(JSON.stringify(body));
-            }
+            } 
+
+            if (!isGet && data) {
+                xhr.send(data as Document);
+            } 
         });
     };
 }
