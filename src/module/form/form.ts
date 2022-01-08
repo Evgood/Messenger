@@ -19,6 +19,7 @@ class Form extends Block {
             button,
             inputs: innerChildren,
             formTitle: props.formTitle,
+            formId: props.formId,
             footerFormDesc: props.footerFormDesc,
             footerFormLinkName: props.footerFormLinkName,
             footerFormLinkUrl: props.footerFormLinkUrl,
