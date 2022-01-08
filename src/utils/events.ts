@@ -1,7 +1,7 @@
 import { Verify, FormData } from '../types'
 import Validation from './Validation';
 import router from './Router';
-import AuthController from '../controllers/auth';
+import auth from '../controllers/auth';
 
 
 export const goToRegister = (event: Event): void => {
@@ -23,7 +23,6 @@ export const goToLogin = (event: Event): void => {
 export const settingClick = (event: Event): void => {
     //@ts-ignore
     if (event.target.dataset.value === 'exit') {
-        const auth = new AuthController();
         auth.logout();
     }
 }
@@ -49,7 +48,6 @@ export const signIn = (event: Event) => {
     const data = validationForm();
 
     if (data) {
-        const auth = new AuthController();
         auth.signIn(data);
     }
 }
@@ -61,13 +59,12 @@ export const signUp = (event: Event) => {
     const data = validationForm();
 
     if (data) {
-        const auth = new AuthController();
         auth.signUp(data);
     }
 }
 
 
-const validationForm = (): FormData | void => {
+export const validationForm = (): FormData | void => {
     const data: FormData = {};
     const inputFields = document.querySelectorAll('.form__input');
     let validationError: number = 0;
