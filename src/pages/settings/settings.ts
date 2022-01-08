@@ -1,9 +1,9 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block'
 import store, { StoreEvents } from '../../utils/Store';
-import { settingClick } from '../../utils/events';
 import router from '../../utils/Router';
-import AuthController from '../../controllers/auth';
+import auth from '../../controllers/auth';
+import settingsController from '../../controllers/settings';
 
 import ChatHeader from '../../module/chatHeader/chatHeader';
 
@@ -29,15 +29,14 @@ class Settings extends Block {
 
         const settingProps = {
             events: {
-                click: settingClick,
+                click: settingsController.pageClick,
             }
         };
 
         super('div', { ...props, ...settingProps, ...store.getState(), chatHeader });
 
-        const auth = new AuthController();
         auth.getUserInfo();
-
+        
         store.on(StoreEvents.Updated, () => {
             this.setProps(store.getState());
         });

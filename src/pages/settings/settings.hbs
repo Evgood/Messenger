@@ -4,7 +4,7 @@
     <section class="setting">
         <div class="setting__card">
             <div class="setting__avatar">
-                <img class="setting__avatar-image" src="{{ user.avatar }}">
+                <img class="setting__avatar-image" data-value="openAvatarPopup" src="https://ya-praktikum.tech/api/v2/resources{{ user.avatar }}">
             </div>
         </div>
         <div class="setting__card">
@@ -37,11 +37,29 @@
         </div>
         <div class="setting__card">
             <div class="setting__card-line">
-                <a class="setting__link" data-value="change-password">Изменить пароль</a>
+                <a class="setting__link" data-value="openChangeProfilePopup">Изменить данные</a>
+            </div>
+            <div class="setting__card-line">
+                <a class="setting__link" data-value="openChangePasswordPopup">Сменить пароль</a>
             </div>
             <div class="setting__card-line">
                 <a class="setting__link setting__link_exit" data-value="exit">Выйти</a>
             </div>
         </div>
     </section>
+
+    {{!-- <div class="pop-up">
+
+        <form class="form" id="avatar-form">
+            <h1 class="form__title">Изменить аватар</h1>
+            <div class="form__wrap form__wrap_16">
+                <input id="avatar-input" type="file" name="avatar" accept="image/*">
+            </div>
+            <button type="submit" class="form__button button">
+                Изменить
+            </button>
+        </form>
+
+    </div> --}}
+
 </main>
