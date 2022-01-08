@@ -140,3 +140,13 @@ body {
     justify-content: end;
     gap: 12px;
 }
+
+.pop-up {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: $color-popup-cover;
+    backdrop-filter: blur(3px);
+}
