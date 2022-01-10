@@ -2,6 +2,7 @@ import Handlebars from 'handlebars/dist/handlebars.runtime';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
 import { Events, Props, Children } from '../types';
+import isEqual from './services/isEqual';
 
 abstract class Block {
 
@@ -51,7 +52,7 @@ abstract class Block {
         this.eventBus.emit(this.EVENTS.FLOW_CWU);
     }
 
-    
+
     public show() {
         this.getElement().style.display = 'block';
     }
@@ -97,13 +98,18 @@ abstract class Block {
 
 
     private updateComponent(oldProps: Props, newProps: Props): void {
-        const isUpdate = (oldProps != newProps) ? true : false;
+        // const equal = isEqual(oldProps, newProps);
+        // const isUpdate = (oldProps != newProps) ? true : false;
 
-        if (isUpdate) {
-            this.removeEvents();
-            this.eventBus.emit(this.EVENTS.FLOW_RENDER);
-            this.componentDidUpdate();
-        }
+        // console.log('oldProps', oldProps)
+        // console.log('newProps', newProps)
+        // console.log('isUpdate', equal)
+
+        // if (!equal) {
+        this.removeEvents();
+        this.eventBus.emit(this.EVENTS.FLOW_RENDER);
+        this.componentDidUpdate();
+        // }
     }
 
 
@@ -205,7 +211,11 @@ abstract class Block {
         const props: Props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
-            if (value instanceof Block || Array.isArray(value)) {
+            if (
+                value instanceof Block
+                || Array.isArray(value)
+                && Object.values(value[0])[0] instanceof Block
+            ) {
                 children[key] = value;
             } else {
                 props[key] = value;
@@ -221,7 +231,8 @@ abstract class Block {
 
         // Create the stubs
         Object.entries(this.children).forEach(([key, child]) => {
-            if (Array.isArray(child)) {
+            // if (Array.isArray(child)) {
+            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) {
                 // If the array of properties
                 child.forEach((innerChild: Children) => {
                     Object.entries(innerChild).forEach(([innerChildKey, child]) => {
@@ -246,7 +257,8 @@ abstract class Block {
 
         // Replace the stubs with a Block
         Object.values(this.children).forEach(child => {
-            if (Array.isArray(child)) {
+            // if (Array.isArray(child)) {
+            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) {
                 // If the array of properties
                 child.forEach((innerChild: Children) => {
                     Object.entries(innerChild).forEach(([innerChildKey, child]) => {

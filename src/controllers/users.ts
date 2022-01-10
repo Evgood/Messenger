@@ -1,9 +1,6 @@
-// import { BodyRequest } from '../types';
 import { BodyRequest } from '../types';
 import UsersAPI from '../api/usersAPI';
-// import router from '../utils/Router';
 import store from '../utils/Store';
-
 
 class UserController {
 
@@ -32,7 +29,16 @@ class UserController {
         this.usersAPIInstance
             .changeUserPassword(data)
             .then(() => store.setState('user.changePassword', new Date()))
-            .then(() => console.log(store.getState()));
+    }
+
+
+    public getUserById(id: string) {
+        return this.usersAPIInstance.getUserById(id);
+    }
+
+
+    public findUsersByLogin(data: BodyRequest) {
+        return this.usersAPIInstance.findUsers(data);
     }
 }
 

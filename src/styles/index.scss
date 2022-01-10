@@ -25,6 +25,10 @@ body {
     z-index: 1;
 }
 
+.hide {
+    display: none !important;
+}
+
 .header {
     position: relative;
     background: $color-white;
@@ -33,7 +37,7 @@ body {
 
     &__left {
         display: grid;
-        grid-template-columns: min-content 1fr;
+        grid-template-columns: min-content 1fr min-content;
         gap: 12px;
     }
 
@@ -134,10 +138,11 @@ body {
     overflow-y: auto;
     height: calc(100vh - 120px);
     padding: 12px;
+}
 
+.message-wrap {
     display: flex;
     flex-direction: column;
-    justify-content: end;
     gap: 12px;
 }
 

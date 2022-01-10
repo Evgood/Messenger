@@ -1,24 +1,48 @@
-<div>
+<main>
     <div class="grid">
         <section class="left">
 
             {{{ chatHeader }}}
 
             <section class="chat-list">
+                {{#if chats}}
+                    {{#each chats}}
+                        <div class="chat-card chat-card_notarget" data-value="chats" data-id="{{ id }}" data-title="{{ title }}" data-avatar="{{ avatar }}">
+                            {{#if avatar }}
+                                <img src="https://ya-praktikum.tech/api/v2/resources{{ avatar }}" class="avatar avatar_chat-list">
+                            {{else}}
+                            <img src="{{ @root.thumb }}" class="avatar avatar_chat-list">
+                            {{/if}}
+                            <div class="chat-card__wrap">
+                                <span class="avatar__name">{{ title }}</span>
+                                <p class="avatar__message"><strong>{{ last_message.user.first_name }}</strong> {{ last_message.content }}</p>
+                            </div>
+                            {{!-- <span class="chat-card__time">{{ last_message.time }}</span> --}}
 
-                {{#each chatCards}}
-                {{{ chatCard }}}
-                {{/each}}
-
+                            {{#if unread_count}}
+                                <span class="chat-card__count">{{ unread_count }}</span>
+                            {{/if}}
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <div class="chat-card chat-card_notarget">
+                        <div class="chat-card__wrap">
+                            <span class="avatar__name">Чатов пока нет</span>
+                            <p class="avatar__message">Чтобы начать общение, создайте чат</p>
+                        </div>
+                    </div>
+                {{/if}}
             </section>
         </section>
 
+        {{#if currentChats.id }}
         <section class="messages-layout">
-
+        {{else}}
+        <section class="messages-layout hide">
+        {{/if}}
             {{{ messageHeader }}}
             {{{ messageList }}}
             {{{ messageControls }}}
-
         </section>
     </div>
-</div>
+</main>

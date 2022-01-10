@@ -2,7 +2,7 @@ import { BodyRequest } from '../types';
 import AuthAPI from '../api/authAPI';
 import router from '../utils/Router';
 import store from '../utils/Store';
-
+import chats from '../controllers/chats'
 
 class AuthController {
 
@@ -18,10 +18,8 @@ class AuthController {
             .signUp(data)
             .then((xhr: XMLHttpRequest) => {
                 if (xhr.status != 200) {
-                    console.log(xhr.status, xhr.response);
+                    new Error(`Код: ${xhr.status}. Ответ сервера: ${xhr.response}`)
                 } else {
-                    console.log(xhr.status, xhr.response);
-
                     router.go('/messenger');
                 }
             });
@@ -33,9 +31,10 @@ class AuthController {
             .signIn(data)
             .then((xhr: XMLHttpRequest) => {
                 if (xhr.status != 200) {
-                    console.log(xhr.status, xhr.response);
+                    new Error(`Код: ${xhr.status}. Ответ сервера: ${xhr.response}`)
                 } else {
-                    console.log(xhr.status, xhr.response);
+                    this.getUserInfo();
+                    chats.getChats();
 
                     router.go('/messenger');
                 }
@@ -46,9 +45,13 @@ class AuthController {
     public getUserInfo() {
         this.authAPIInstance
             .getUserInfo()
-            .then((xhr: XMLHttpRequest) => (
-                store.setState('user', xhr.response)
-            ));
+            .then((xhr: XMLHttpRequest) => {
+                if (xhr.status != 200) {
+                    router.go('/');
+                } else {
+                    store.setState('user', xhr.response)
+                }
+            });
     }
 
 
@@ -57,9 +60,8 @@ class AuthController {
             .logout()
             .then((xhr: XMLHttpRequest) => {
                 if (xhr.status != 200) {
-                    console.log(xhr.status, xhr.response);
+                    new Error(`Код: ${xhr.status}. Ответ сервера: ${xhr.response}`)
                 } else {
-                    console.log(xhr.status, xhr.response);
                     router.go('/');
                 }
             });

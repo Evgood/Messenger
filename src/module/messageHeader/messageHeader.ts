@@ -1,7 +1,9 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block';
+import store, { StoreEvents } from '../../utils/Store';
 import Button from '../../components/button/button';
 import template from './messageHeader.hbs';
+import thumb from '../../../static/images/avatars/thumb.svg';
 
 class MessageHeader extends Block {
     constructor(props: Props = {}) {
@@ -12,6 +14,7 @@ class MessageHeader extends Block {
                     className: props.buttons.searchButton.className,
                     type: props.buttons.searchButton.type,
                     content: props.buttons.searchButton.content,
+                    events: props.buttons.searchButton.events,
                 })
             },
             {
@@ -19,14 +22,18 @@ class MessageHeader extends Block {
                     className: props.buttons.menuButton.className,
                     type: props.buttons.menuButton.type,
                     content: props.buttons.menuButton.content,
+                    events: props.buttons.menuButton.events,
                 })
             },
         ]
 
         super('div', {
             buttons,
-            avatarName: props.avatarName,
-            avatarUrl: props.avatarUrl,
+            thumb
+        });
+
+        store.on(StoreEvents.Updated, () => {
+            this.setProps(store.getState());
         });
     }
 
