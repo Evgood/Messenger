@@ -15,7 +15,6 @@ import MessageControls from '../../module/messageControls/messageControls';
 import MessageList from '../../module/messageList/messageList';
 
 import template from './chat.hbs';
-import avatar from '../../../static/images/avatars/01.jpg';
 import thumb from '../../../static/images/avatars/thumb.svg';
 import svg from '../../../static/images/svg';
 import './chat.scss';
