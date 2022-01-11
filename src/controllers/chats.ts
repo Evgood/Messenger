@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { BodyRequest, Props } from '../types';
-import ChatsAPI from '../api/ChatsAPI';
+import ChatsAPI from '../api/chatsAPI';
 import store from '../utils/Store';
 import users from './users';
 import messenger from './messenger';
