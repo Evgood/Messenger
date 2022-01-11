@@ -24,7 +24,7 @@ class ChatsController {
                 store.getState().chats.forEach((chat: Props) => {
                     this.getChatToken(chat.id)
                         .then((token) => {
-                            const socket = new Socket(store.getState().users.id, chat.id, token);
+                            const socket = new Socket(store.getState().user.id, chat.id, token);
 
                             socket.message(() => {
                                 messenger.messageListener();
