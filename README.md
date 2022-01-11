@@ -45,5 +45,5 @@ Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
 ## Pull requests
 
 Sprint 1: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/1  
-Sprint 2: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/2
-Sprint 3: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/3
+Sprint 2: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/2  
+Sprint 3: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/3  
