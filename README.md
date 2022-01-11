@@ -18,15 +18,16 @@ https://www.figma.com/file/BRT0Knjd08ubRNz4EeztS1/Chat?node-id=0%3A1
 
 ## Страницы
 
-Login page: https://affectionate-heyrovsky-b5e847.netlify.app/login  
+Login page: https://affectionate-heyrovsky-b5e847.netlify.app/  
 Register page: https://affectionate-heyrovsky-b5e847.netlify.app/register  
-Chat page: https://affectionate-heyrovsky-b5e847.netlify.app/chat  
+Chat page: https://affectionate-heyrovsky-b5e847.netlify.app/messenger  
 Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings  
 404 page: https://affectionate-heyrovsky-b5e847.netlify.app/404  
 500 page: https://affectionate-heyrovsky-b5e847.netlify.app/500  
 
-## Функционал
+## Функционал 
 
+### Спринт 2 
 1. Реализован функционал компонента с жизненым циклом (componentDidMount, componentDidUpdate, componentWillUnmount, render, init)  
 2. Реализована шина событий для жизеного цикла компонента  
 3. Все приложение переписано на TS и с импользованием компонетов
@@ -35,6 +36,12 @@ Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
 6. Реализован класс для работы с запросами
 7. Добавлен ESLint и Stylelint
 
+### Спринт 3
+1. Реализован роутинг.
+2. Внедрено API чатов. Авторизация в полном объеме, работа с информацией пользователя, работа с чатами.
+3. Подключен WebSocket для работы с real-time сообщениями.
+4. Добавлены unit-тесты
+   
 ## Pull requests
 
 Sprint 1: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/1  
