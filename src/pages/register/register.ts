@@ -1,6 +1,6 @@
 import { Props } from '../../types';
 import Block from '../../utils/Block';
-import { inputFocus, inputBlur } from '../../utils/events';
+import { inputFocus, inputBlur, signUp, goToLogin } from '../../utils/events';
 
 import Form from '../../module/form/form';
 import Input from '../../components/input/input';
@@ -8,8 +8,8 @@ import Input from '../../components/input/input';
 import template from './register.hbs';
 
 class Register extends Block {
-    constructor(props: Props = {}) {
 
+    constructor(props: Props = {}) {
         const innerInputs = [
             {
                 input: new Input({
@@ -106,17 +106,15 @@ class Register extends Block {
             formTitle: 'Регистрация',
             footerFormDesc: 'Уже есть аккаунт?',
             footerFormLinkName: 'Войти',
-            footerFormLinkUrl: '/login',
+            events: {
+                submit: signUp,
+                click: goToLogin,
+            }
         }, innerInputs)
 
-        super(
-            'div',
-            {
-                ...props,
-                form
-            }
-        );
+        super('div', { ...props, form });
     }
+
 
     render() {
         return this.setTemplate(template, this.props);

@@ -1,26 +1,48 @@
 /* eslint-disable max-len */
 import { Props } from '../../types';
-import Block from '../../utils/Block'
+import Block from '../../utils/Block';
+import router from '../../utils/Router';
+import store, { StoreEvents } from '../../utils/Store';
+import { isEmpty } from '../../utils/services/isEmpty';
+
+import chats from '../../controllers/chats';
+import auth from '../../controllers/auth';
+import messenger from '../../controllers/messenger';
 
 import MessageHeader from '../../module/messageHeader/messageHeader';
 import ChatHeader from '../../module/chatHeader/chatHeader';
 import MessageControls from '../../module/messageControls/messageControls';
 import MessageList from '../../module/messageList/messageList';
-import СhatCard from '../../components/chatCard/chatCard';
-import Message from '../../components/message/message';
 
 import template from './chat.hbs';
-import avatar from '../../../static/images/avatars/01.jpg';
+import thumb from '../../../static/images/avatars/thumb.svg';
 import svg from '../../../static/images/svg';
+import './chat.scss';
 
 class Chat extends Block {
     constructor(props: Props = {}) {
+
+        if (isEmpty(store.getState())) {
+            auth.getUserInfo();
+            chats.getChats();
+        }
 
         const chatHeader = new ChatHeader({
             button: {
                 className: 'header__button button',
                 type: 'button',
                 content: svg.setting,
+                events: {
+                    click: () => router.go('/settings'),
+                }
+            },
+            addButton: {
+                className: 'header__button button',
+                type: 'button',
+                content: svg.add,
+                events: {
+                    click: messenger.openAddChatPopup,
+                }
             },
             input: {
                 className: 'input input__search',
@@ -30,92 +52,28 @@ class Chat extends Block {
             },
         })
 
-        const chatCards = [
-            {
-                chatCard: new СhatCard({
-                    className: 'chat-card_notarget',
-                    avatarName: 'Кристина Нехорошкова',
-                    avatarUrl: avatar,
-                    message: 'Какое-то сообщение в две строки',
-                    messageTime: '15:23',
-                    messageCount: 6,
-                })
-            },
-            {
-                chatCard: new СhatCard({
-                    className: 'chat-card_active',
-                    avatarName: 'Дамир Юсипов',
-                    avatarUrl: avatar,
-                    message: 'Еще какое-то сообщение в две строки',
-                    messageTime: '12:02',
-                })
-            },
-            {
-                chatCard: new СhatCard({
-                    className: 'chat-card_notarget',
-                    avatarName: 'Кристина Нехорошкова',
-                    avatarUrl: avatar,
-                    message: 'Какое-то сообщение в две строки',
-                    messageTime: '21:23',
-                })
-            },
-            {
-                chatCard: new СhatCard({
-                    className: 'chat-card_notarget',
-                    avatarName: 'Кристина Нехорошкова',
-                    avatarUrl: avatar,
-                    message: 'Какое-то сообщение в две строки',
-                    messageTime: '15:23',
-                    messageCount: 12,
-                })
-            },
-        ];
-
         const messageHeader = new MessageHeader({
             buttons: {
                 searchButton: {
                     className: 'header__button button',
                     type: 'button',
                     content: svg.search,
+                    events: {
+                        click: messenger.openAddUserToChatPopup,
+                    }
                 },
                 menuButton: {
                     className: 'header__button button',
                     type: 'button',
                     content: svg.menu,
+                    events: {
+                        click: messenger.openDeleteUserFromChatPopup,
+                    }
                 },
             },
-            avatarUrl: avatar,
-            avatarName: 'Дамир Юсипов',
         });
 
-        const innerMessage = [
-            {
-                message: new Message({
-                    src: avatar,
-                    name: 'Карина Терехова',
-                    time: '15:46',
-                    text: 'Позвонил на основной номер, хочет продать свою 3к и купить две своим детям.',
-                })
-            },
-            {
-                message: new Message({
-                    src: avatar,
-                    name: 'Дамир Юсипов',
-                    time: '15:51',
-                    text: 'Спасибо, Карина. Взял в работу',
-                })
-            },
-            {
-                message: new Message({
-                    src: avatar,
-                    name: 'Дамир Юсипов',
-                    time: '15:52',
-                    text: 'Что-то еще нужно?',
-                })
-            },
-        ]
-
-        const messageList = new MessageList({}, innerMessage);
+        const messageList = new MessageList();
 
         const messageControls = new MessageControls({
             addButton: {
@@ -138,11 +96,20 @@ class Chat extends Block {
 
         super('div', {
             ...props,
+            ...store.getState(),
             chatHeader,
-            chatCards,
             messageHeader,
             messageList,
-            messageControls
+            messageControls,
+            thumb,
+            events: {
+                click: messenger.pageClick,
+                submit: messenger.pageClick,
+            },
+        });
+
+        store.on(StoreEvents.Updated, () => {
+            this.setProps(store.getState());
         });
     }
 

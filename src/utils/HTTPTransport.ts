@@ -43,7 +43,7 @@ class HTTPTransport {
 
 
     private request = (url: string, options: Options, timeout = 5000) => {
-        const { headers = {}, method, data } = options;
+        const { headers = {}, method, credentials, data, body } = options;
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
@@ -60,20 +60,31 @@ class HTTPTransport {
                 xhr.setRequestHeader(key, headers[key]);
             });
 
+            if (credentials) {
+                xhr.withCredentials = true;
+            }
+
+            xhr.responseType = 'json';
             xhr.timeout = timeout;
 
             xhr.onload = () => resolve(xhr);
-            xhr.onabort = reject;
-            xhr.onerror = reject;
-            xhr.ontimeout = reject;
+            xhr.onabort = () => reject(new Error('Обрыв соединения'));
+            xhr.onerror = () => reject(new Error('Ошибка соединения'));
+            xhr.ontimeout = () => reject(new Error('Время ожидания ответа истекло'));
 
-            if (isGet || !data) {
+            if (isGet) {
                 xhr.send();
-            } else {
-                xhr.send(JSON.stringify(data));
+            }
+
+            if (body) {
+                xhr.send(JSON.stringify(body));
+            }
+
+            if (!isGet && data) {
+                xhr.send(data as Document);
             }
         });
     };
 }
 
-export default HTTPTransport;
+export default new HTTPTransport();

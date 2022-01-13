@@ -1,5 +1,17 @@
 <section class="message-list">
-    {{#each messages}}
-        {{{ message }}}
-    {{/each}}
+    <div class="message-wrap">
+        {{#each messages}}
+            {{!-- {{{ message }}} --}}
+            <div class="message-card">
+                <img src="https://ya-praktikum.tech/api/v2/resources{{ avatar }}" class="avatar avatar_message-list">
+                <div class="message-card__inner">
+                    <div class="message-card__wrap">
+                        <h2 class="message-card__title">{{ name }}</h2>
+                        <span class="message-card__time">{{ time }}</span>
+                    </div>
+                    <p class="message-card__text">{{ content }}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </section>

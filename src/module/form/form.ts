@@ -1,6 +1,5 @@
 import { Props, InnerChildren } from '../../types';
 import Block from '../../utils/Block';
-import { formSubmit } from '../../utils/events'
 
 import Button from '../../components/button/button';
 
@@ -20,12 +19,11 @@ class Form extends Block {
             button,
             inputs: innerChildren,
             formTitle: props.formTitle,
+            formId: props.formId,
             footerFormDesc: props.footerFormDesc,
             footerFormLinkName: props.footerFormLinkName,
             footerFormLinkUrl: props.footerFormLinkUrl,
-            events: {
-                submit: formSubmit,
-            }
+            events: props.events,
         });
     }
 

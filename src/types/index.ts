@@ -3,14 +3,18 @@ import Block from '../utils/Block';
 export type Props = Record<string, any>;
 export type Children = Record<string, Block>;
 export type Events = Record<string, string>;
+export type BodyRequest = Record<string, any>;
 
 export type Listeners = Record<string, Function[]>;
 export type InnerChildren = Record<string, Block>[];
 
 export type Options = {
-    timeout?: number
     method: string
+    timeout?: number
+    credentials?: boolean
+    mode?: string
     headers?: Record<string, string>
+    body?: Record<string, any>
     data?: Record<string, any>
 };
 

@@ -18,14 +18,14 @@ https://www.figma.com/file/BRT0Knjd08ubRNz4EeztS1/Chat?node-id=0%3A1
 
 ## Страницы
 
-Login page: https://affectionate-heyrovsky-b5e847.netlify.app/login  
+Login page: https://affectionate-heyrovsky-b5e847.netlify.app/  
 Register page: https://affectionate-heyrovsky-b5e847.netlify.app/register  
-Chat page: https://affectionate-heyrovsky-b5e847.netlify.app/chat  
+Chat page: https://affectionate-heyrovsky-b5e847.netlify.app/messenger  
 Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings  
 404 page: https://affectionate-heyrovsky-b5e847.netlify.app/404  
 500 page: https://affectionate-heyrovsky-b5e847.netlify.app/500  
 
-## Функционал
+## Функционал 
 
 ### Спринт 2
 1. Реализован функционал компонента с жизненым циклом (componentDidMount, componentDidUpdate, componentWillUnmount, render, init)  

@@ -7,13 +7,25 @@ import template from './chatHeader.hbs';
 class ChatHeader extends Block {
     constructor(props: Props = {}) {
         let button: Block | null = null;
+        let addButton: Block | null = null;
         let input: Block | null = null;
 
         button = new Button({
             className: props.button.className,
             type: props.button.type,
             content: props.button.content,
+            events: props.button.events,
         })
+
+        if (props.addButton) {
+            addButton = new Button({
+                className: props.addButton.className,
+                type: props.addButton.type,
+                content: props.addButton.content,
+                dataValue: props.addButton.dataValue,
+                events: props.addButton.events,
+            })
+        }
 
         if (props.input) {
             input = new Input({
@@ -26,6 +38,7 @@ class ChatHeader extends Block {
 
         super('div', {
             button,
+            addButton,
             input,
             headerTitle: props.headerTitle,
         });

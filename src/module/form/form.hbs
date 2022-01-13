@@ -1,4 +1,4 @@
-<form class="form">
+<form class="form" {{#if formId}} id="{{ formId }}" {{/if}}>
 
     <h1 class="form__title">{{ formTitle }}</h1>
 
@@ -13,7 +13,7 @@
     {{#if footerFormDesc}}
         <div class="form__wrap form__wrap_6">
             <span class="form__desc">{{ footerFormDesc }}</span>
-            <a href="{{ footerFormLinkUrl }}" class="form__link">{{ footerFormLinkName }}</a>
+            <a class="form__link">{{ footerFormLinkName }}</a>
         </div>
     {{/if}}
 

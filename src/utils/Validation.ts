@@ -1,6 +1,5 @@
 import { Verify, ValidationFields } from '../types'
 
-/* eslint-disable max-len */
 class Validation {
 
     private static FIELDS: ValidationFields  = {
