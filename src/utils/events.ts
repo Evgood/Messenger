@@ -5,24 +5,21 @@ import auth from '../controllers/auth';
 
 
 export const goToRegister = (event: Event): void => {
-    //@ts-ignore
-    if (event.target.className === 'form__link') {
+    if ((event.target as HTMLElement).className === 'form__link') {
         router.go('/sign-up');
     }
 }
 
 
 export const goToLogin = (event: Event): void => {
-    //@ts-ignore
-    if (event.target.className === 'form__link') {
+    if ((event.target as HTMLElement).className === 'form__link') {
         router.go('/');
     }
 }
 
 
 export const settingClick = (event: Event): void => {
-    //@ts-ignore
-    if (event.target.dataset.value === 'exit') {
+    if ((event.target as HTMLElement).dataset.value === 'exit') {
         auth.logout();
     }
 }

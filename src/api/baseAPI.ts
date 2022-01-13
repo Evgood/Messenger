@@ -2,11 +2,11 @@ import HTTPTransport from '../utils/HTTPTransport';
 
 abstract class BaseAPI {
 
-    protected HTTP: HTTPTransport;
+    protected http;
     protected baseUrl: string;
 
     public constructor() {
-        this.HTTP = new HTTPTransport();
+        this.http = HTTPTransport;
         this.baseUrl = 'https://ya-praktikum.tech/api/v2'; 
     }
 }

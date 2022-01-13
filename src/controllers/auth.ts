@@ -16,29 +16,23 @@ class AuthController {
     public signUp(data: BodyRequest) {
         this.authAPIInstance
             .signUp(data)
-            .then((xhr: XMLHttpRequest) => {
-                if (xhr.status != 200) {
-                    new Error(`Код: ${xhr.status}. Ответ сервера: ${xhr.response}`)
-                } else {
-                    router.go('/messenger');
-                }
-            });
+            .then(() => {
+                router.go('/messenger');
+            })
+            .catch((err) => alert(err.message));
     }
 
 
     public signIn(data: BodyRequest) {
         this.authAPIInstance
             .signIn(data)
-            .then((xhr: XMLHttpRequest) => {
-                if (xhr.status != 200) {
-                    new Error(`Код: ${xhr.status}. Ответ сервера: ${xhr.response}`)
-                } else {
-                    this.getUserInfo();
-                    chats.getChats();
+            .then(() => {
+                this.getUserInfo();
+                chats.getChats();
 
-                    router.go('/messenger');
-                }
-            });
+                router.go('/messenger');
+            })
+            .catch((err) => alert(err.message));;
     }
 
 
@@ -51,20 +45,18 @@ class AuthController {
                 } else {
                     store.setState('user', xhr.response)
                 }
-            });
+            })
+            .catch((err) => alert(err.message));;
     }
 
 
     public logout() {
         this.authAPIInstance
             .logout()
-            .then((xhr: XMLHttpRequest) => {
-                if (xhr.status != 200) {
-                    new Error(`Код: ${xhr.status}. Ответ сервера: ${xhr.response}`)
-                } else {
-                    router.go('/');
-                }
-            });
+            .then(() => {
+                router.go('/');
+            })
+            .catch((err) => alert(err.message));;
     }
 }
 

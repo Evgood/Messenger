@@ -64,27 +64,27 @@ class HTTPTransport {
                 xhr.withCredentials = true;
             }
 
+            xhr.responseType = 'json';
             xhr.timeout = timeout;
 
             xhr.onload = () => resolve(xhr);
-            xhr.responseType = 'json';
-            xhr.onabort = reject;
-            xhr.onerror = reject;
-            xhr.ontimeout = reject;
+            xhr.onabort = () => reject(new Error('Обрыв соединения'));
+            xhr.onerror = () => reject(new Error('Ошибка соединения'));
+            xhr.ontimeout = () => reject(new Error('Время ожидания ответа истекло'));
 
             if (isGet) {
                 xhr.send();
-            } 
+            }
 
             if (body) {
                 xhr.send(JSON.stringify(body));
-            } 
+            }
 
             if (!isGet && data) {
                 xhr.send(data as Document);
-            } 
+            }
         });
     };
 }
 
-export default HTTPTransport;
+export default new HTTPTransport();

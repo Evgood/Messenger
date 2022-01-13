@@ -27,7 +27,7 @@ class ChatsAPI extends BaseAPI {
             data: data
         }
 
-        return this.HTTP.get(this.chatsUrl, options);
+        return this.http.get(this.chatsUrl, options);
     }
 
 
@@ -41,7 +41,7 @@ class ChatsAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.post(this.chatsUrl, options);
+        return this.http.post(this.chatsUrl, options);
     }
 
 
@@ -55,7 +55,7 @@ class ChatsAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.put(this.usersChatUrl, options);
+        return this.http.put(this.usersChatUrl, options);
     }
 
 
@@ -69,7 +69,7 @@ class ChatsAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.delete(this.usersChatUrl, options);
+        return this.http.delete(this.usersChatUrl, options);
     }
 
 
@@ -83,7 +83,7 @@ class ChatsAPI extends BaseAPI {
             body: {}
         }
 
-        return this.HTTP.post(`${this.tokenUrl}/${id}`, options);
+        return this.http.post(`${this.tokenUrl}/${id}`, options);
     }
 }
 

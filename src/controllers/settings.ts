@@ -12,8 +12,7 @@ class SettingsController {
     public pageClick(event: Event): void {
         const popup = new PopupController();
 
-        //@ts-ignore
-        switch (event.target.dataset.value) {
+        switch ((event.target as HTMLElement).dataset.value) {
             case 'exit':
                 auth.logout();
                 break;
@@ -153,8 +152,7 @@ class SettingsController {
                 break;
 
             case 'closePopup':
-                //@ts-ignore
-                event.target.remove();
+                (event.target as HTMLElement).remove();
                 break;
 
             default:

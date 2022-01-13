@@ -98,18 +98,9 @@ abstract class Block {
 
 
     private updateComponent(oldProps: Props, newProps: Props): void {
-        // const equal = isEqual(oldProps, newProps);
-        // const isUpdate = (oldProps != newProps) ? true : false;
-
-        // console.log('oldProps', oldProps)
-        // console.log('newProps', newProps)
-        // console.log('isUpdate', equal)
-
-        // if (!equal) {
         this.removeEvents();
         this.eventBus.emit(this.EVENTS.FLOW_RENDER);
         this.componentDidUpdate();
-        // }
     }
 
 

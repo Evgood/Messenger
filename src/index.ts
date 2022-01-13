@@ -16,4 +16,3 @@ router
     .use('/500', ErrorPage, { code: 500 })
     .use('/404', ErrorPage, { code: 404 })
     .start();
-    

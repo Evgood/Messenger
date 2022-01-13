@@ -7,58 +7,48 @@ import PopupController from './popup';
 import chats from './chats';
 import users from './users';
 import store from '../utils/Store';
+import Socket from 'utils/Soket';
 
 class MessengerController {
 
     public pageClick(event: Event): void {
-        //@ts-ignore
-        if (event.target.dataset.value === 'closePopup') {
-            //@ts-ignore
-            event.target.remove();
+
+        if ((event.target as HTMLElement).dataset.value === 'closePopup') {
+            (event.target as HTMLElement).remove();
         }
 
-        //@ts-ignore
-        if (event.target.dataset.value === 'messageForm') {
-            //@ts-ignore
+        if ((event.target as HTMLElement).dataset.value === 'messageForm') {
             event.preventDefault();
 
             const id = store.getState().currentChats.id;
             const sockets = store.getState().socket;
-            let socket;
+            let socket: Socket;
 
             Object.entries(sockets).forEach(([key, value]) => {
-                if (key === id) socket = value;
-            })
+                if (key === id) socket = value as Socket;
+            });
 
-            //@ts-ignore
             socket.send({
-                //@ts-ignore
-                content: event.target[1].value,
+                content: ((event.target as HTMLFormElement)[1] as HTMLInputElement).value,
                 type: 'message',
             });
-            
-            //@ts-ignore
-            event.target[1].value = '';
+
+            ((event.target as HTMLFormElement)[1] as HTMLInputElement).value = '';
         }
 
-        //@ts-ignore
-        if (event.target.closest('[data-value="chats"]').dataset.value === 'chats') {
+        if (((event.target as HTMLElement).closest('[data-value="chats"]') as HTMLElement).dataset.value === 'chats') {
 
-            //@ts-ignore
-            const id = event.target.closest('[data-value="chats"]').dataset.id;
-            //@ts-ignore
-            const title = event.target.closest('[data-value="chats"]').dataset.title;
-            //@ts-ignore
-            const avatar = event.target.closest('[data-value="chats"]').dataset.avatar;
+            const id = ((event.target as HTMLElement).closest('[data-value="chats"]') as HTMLElement).dataset.id;
+            const title = ((event.target as HTMLElement).closest('[data-value="chats"]') as HTMLElement).dataset.title;
+            const avatar = ((event.target as HTMLElement).closest('[data-value="chats"]') as HTMLElement).dataset.avatar;
 
-            let socket;
+            let socket: Socket;
             const sockets = store.getState().socket;
 
             Object.entries(sockets).forEach(([key, value]) => {
-                if (key === id) socket = value;
+                if (key === id) socket = value as Socket;
             })
 
-            //@ts-ignore
             socket.send({
                 content: '0',
                 type: 'get old',
@@ -178,8 +168,7 @@ class MessengerController {
 
 
     public messageListener() {
-        //@ts-ignore
-        const data = JSON.parse(event.data);
+        const data = JSON.parse((event as MessageEvent).data);
 
         if (data.type === 'message') {
             this.addMessage(data);
@@ -213,18 +202,18 @@ class MessengerController {
             users
                 .getUserById(userId)
                 .then((xhr: XMLHttpRequest) => {
-                    avatar = xhr.response.avatar;
-                    first_name = xhr.response.first_name;
-                    second_name = xhr.response.second_name;
-                    display_name = (xhr.response.display_name)
-                        ? xhr.response.display_name
-                        : `${first_name} ${second_name}`;
+                    const {
+                        avatar,
+                        display_name = (xhr.response.display_name)
+                            ? xhr.response.display_name
+                            : `${first_name} ${second_name}`,
+                    } = xhr.response;
 
                     prepareMessages.push({
                         time: `${hours}:${minutes} ${date}`,
-                        avatar: avatar,
                         name: display_name,
-                        content: content,
+                        avatar,
+                        content,
                     });
                 })
                 .then(() => {
@@ -242,8 +231,6 @@ class MessengerController {
         // User
         let first_name: string;
         let second_name: string;
-        let display_name: string;
-        let avatar: string;
         const userId: string = message.user_id;
 
         // Date
@@ -258,18 +245,18 @@ class MessengerController {
         users
             .getUserById(userId)
             .then((xhr: XMLHttpRequest) => {
-                avatar = xhr.response.avatar;
-                first_name = xhr.response.first_name;
-                second_name = xhr.response.second_name;
-                display_name = (xhr.response.display_name)
-                    ? xhr.response.display_name
-                    : `${first_name} ${second_name}`;
+                const {
+                    avatar,
+                    display_name = (xhr.response.display_name)
+                        ? xhr.response.display_name
+                        : `${first_name} ${second_name}`,
+                } = xhr.response;
 
                 messagesArray.unshift({
                     time: `${hours}:${minutes} ${date}`,
-                    avatar: avatar,
                     name: display_name,
-                    content: content,
+                    avatar,
+                    content,
                 });
             })
             .then(() => {

@@ -31,7 +31,7 @@ class UserAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.put(this.changeProfileUrl, options);
+        return this.http.put(this.changeProfileUrl, options);
     }
 
 
@@ -42,7 +42,7 @@ class UserAPI extends BaseAPI {
             data: data
         }
 
-        return this.HTTP.put(this.changeAvatarUrl, options);
+        return this.http.put(this.changeAvatarUrl, options);
     }
 
 
@@ -56,7 +56,7 @@ class UserAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.put(this.changePasswordUrl, options);
+        return this.http.put(this.changePasswordUrl, options);
     }
 
 
@@ -70,7 +70,7 @@ class UserAPI extends BaseAPI {
             data: { id }
         }
 
-        return this.HTTP.get(`${this.userUrl}/${id}`, options);
+        return this.http.get(`${this.userUrl}/${id}`, options);
     }
 
 
@@ -84,7 +84,7 @@ class UserAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.post(this.findUsersUrl, options);
+        return this.http.post(this.findUsersUrl, options);
     }
 }
 

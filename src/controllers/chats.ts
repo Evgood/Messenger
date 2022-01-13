@@ -33,7 +33,8 @@ class ChatsController {
                             store.setState(`socket.${chat.id}`, socket);
                         })
                 })
-            });
+            })
+            .catch((err) => alert(err.message));;;
     }
 
 
@@ -41,6 +42,7 @@ class ChatsController {
         this.chatsAPIInstance
             .createChat(data)
             .then(() => this.getChats())
+            .catch((err) => alert(err.message));;
     }
 
 
@@ -48,6 +50,7 @@ class ChatsController {
         return this.chatsAPIInstance
             .getChatToken(id)
             .then((xhr: XMLHttpRequest) => xhr.response.token)
+            .catch((err) => alert(err.message));;
     }
 
 
@@ -65,6 +68,7 @@ class ChatsController {
                     .then(() => store
                         .setState(`currentChats.users.${response.login}`, response.id))
             })
+            .catch((err) => alert(err.message));;
     }
 
 
@@ -82,6 +86,7 @@ class ChatsController {
                     .then(() => store
                         .setState(`currentChats.users.${response.login}`, response.id))
             })
+            .catch((err) => alert(err.message));;
     }
 }
 

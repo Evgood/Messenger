@@ -29,7 +29,7 @@ class AuthAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.post(this.signUpUrl, options);
+        return this.http.post(this.signUpUrl, options);
     }
 
 
@@ -43,7 +43,7 @@ class AuthAPI extends BaseAPI {
             body: data
         }
 
-        return this.HTTP.post(this.signInUrl, options);
+        return this.http.post(this.signInUrl, options);
     }
 
 
@@ -53,7 +53,7 @@ class AuthAPI extends BaseAPI {
             credentials: true,
         }
 
-        return this.HTTP.get(this.getUserInfoUrl, options);
+        return this.http.get(this.getUserInfoUrl, options);
     }
 
 
@@ -64,7 +64,7 @@ class AuthAPI extends BaseAPI {
             body: {}
         }
 
-        return this.HTTP.post(this.logoutUrl, options);
+        return this.http.post(this.logoutUrl, options);
     }
 }
 

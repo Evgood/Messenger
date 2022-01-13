@@ -14,14 +14,16 @@ class UserController {
     public changeUserAvatar(data: FormData) {
         this.usersAPIInstance
             .changeUserAvatar(data)
-            .then((xhr: XMLHttpRequest) => store.setState('user', xhr.response));
+            .then((xhr: XMLHttpRequest) => store.setState('user', xhr.response))
+            .catch((err) => alert(err.message));
     }
 
 
     public changeUserProfile(data: BodyRequest) {
         this.usersAPIInstance
             .changeUserProfile(data)
-            .then((xhr: XMLHttpRequest) => store.setState('user', xhr.response));
+            .then((xhr: XMLHttpRequest) => store.setState('user', xhr.response))
+            .catch((err) => alert(err.message));
     }
 
 
@@ -29,6 +31,7 @@ class UserController {
         this.usersAPIInstance
             .changeUserPassword(data)
             .then(() => store.setState('user.changePassword', new Date()))
+            .catch((err) => alert(err.message));
     }
 
 
