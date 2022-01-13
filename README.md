@@ -27,7 +27,7 @@ Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
 
 ## Функционал 
 
-### Спринт 2 
+### Спринт 2
 1. Реализован функционал компонента с жизненым циклом (componentDidMount, componentDidUpdate, componentWillUnmount, render, init)  
 2. Реализована шина событий для жизеного цикла компонента  
 3. Все приложение переписано на TS и с импользованием компонетов
@@ -45,4 +45,5 @@ Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
 ## Pull requests
 
 Sprint 1: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/1  
-Sprint 2: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/2
+Sprint 2: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/2  
+Sprint 3: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/3  
