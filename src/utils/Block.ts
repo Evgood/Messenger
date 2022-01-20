@@ -1,8 +1,8 @@
+//@ts-ignore
 import Handlebars from 'handlebars/dist/handlebars.runtime';
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
 import { Events, Props, Children } from '../types';
-import isEqual from './services/isEqual';
 
 abstract class Block {
 
@@ -96,7 +96,7 @@ abstract class Block {
         });
     }
 
-
+    //@ts-ignore
     private updateComponent(oldProps: Props, newProps: Props): void {
         this.removeEvents();
         this.eventBus.emit(this.EVENTS.FLOW_RENDER);
@@ -252,6 +252,7 @@ abstract class Block {
             if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) {
                 // If the array of properties
                 child.forEach((innerChild: Children) => {
+                    //@ts-ignore
                     Object.entries(innerChild).forEach(([innerChildKey, child]) => {
                         const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
                         (stub as HTMLElement).replaceWith(child.getElement());

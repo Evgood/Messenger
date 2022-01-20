@@ -28,6 +28,7 @@ class MessengerController {
                 if (key === id) socket = value as Socket;
             });
 
+            //@ts-ignore
             socket.send({
                 content: ((event.target as HTMLFormElement)[1] as HTMLInputElement).value,
                 type: 'message',
@@ -49,6 +50,7 @@ class MessengerController {
                 if (key === id) socket = value as Socket;
             })
 
+            //@ts-ignore
             socket.send({
                 content: '0',
                 type: 'get old',
@@ -186,8 +188,8 @@ class MessengerController {
             // User
             let first_name: string;
             let second_name: string;
-            let display_name: string;
-            let avatar: string;
+            // let display_name: string;
+            // let avatar: string;
             const userId: string = message.user_id;
 
             // Date
