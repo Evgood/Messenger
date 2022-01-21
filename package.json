@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node ./node_modules/.bin/webpack --mode development",
     "build": "node ./node_modules/.bin/webpack --mode production",
-    "server": "node server.js",
+    "server": "PORT=3000 node server.js",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts"
   },
   "husky": {
