@@ -3,7 +3,11 @@
 
 ## Deploy
 
+### Netlify
 https://affectionate-heyrovsky-b5e847.netlify.app
+
+### Heroku
+https://messager1227.herokuapp.com
 
 ## Макет Figma
 
@@ -13,8 +17,8 @@ https://www.figma.com/file/BRT0Knjd08ubRNz4EeztS1/Chat?node-id=0%3A1
 ## Установка
 
 - `npm install` — установка стабильной версии,
-- `npm dev` — запуск версии для разработчика,
-- `npm build` — сборка стабильной версии.
+- `npm start` — запуск проекта,
+- `npm build` — сборка продакшен версии.
 
 ## Страницы
 
@@ -42,8 +46,16 @@ Settings page: https://affectionate-heyrovsky-b5e847.netlify.app/settings
 3. Подключен WebSocket для работы с real-time сообщениями.
 4. Добавлены unit-тесты
    
+### Спринт 4
+1. Настроена Webpack сборка проекта. Настроены loaders для работы с TS, Handlebars, Sass.
+2. Настроена Docker-сборка приложения.
+3. Деплой приложения в Heroku Docker-сборки.
+4. Настроен precommit.
+5. Проведен аудит пакетов.
+   
 ## Pull requests
 
 Sprint 1: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/1  
 Sprint 2: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/2  
 Sprint 3: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/3  
+Sprint 4: https://github.com/Evgood/middle.messenger.praktikum.yandex/pull/4  
