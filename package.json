@@ -6,9 +6,9 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "webpack --mode production",
+    "start": "npm-run-all start server",
     "dev": "webpack --mode development",
-    "build": "npm-run-all start server",
+    "build": "webpack --mode production",
     "server": "node server.js",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts"
   },
