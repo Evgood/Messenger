@@ -25,7 +25,8 @@ class Validation {
         },
         password: {
             pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
-            error: 'Слабый пароль',
+            // eslint-disable-next-line max-len
+            error: 'Пароль должен содержать хотя бы одну заглавную букву, цифру и содержать не менее 8 символов',
             sucsess: 'Надежный пароль',
         },
         phone: {
