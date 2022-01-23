@@ -31,13 +31,13 @@ class ErrorPage extends Block {
             break;
         }
 
-        const error = new ErrorComponent({ ...errorProps })
+        const errorElement = new ErrorComponent({ ...errorProps })
 
         super(
             'div',
             {
                 ...props,
-                error
+                errorElement
             }
         );
     }
